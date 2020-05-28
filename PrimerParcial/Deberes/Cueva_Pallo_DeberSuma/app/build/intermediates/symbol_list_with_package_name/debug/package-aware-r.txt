@@ -746,7 +746,9 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btnDivision
 id btnLimpiar
+id btnMultiplicacion
 id btnResta
 id btnSumar
 id buttonPanel

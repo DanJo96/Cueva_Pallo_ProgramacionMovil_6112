@@ -7,6 +7,34 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/btnDivision"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/cutive"
+        android:text="/"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRes"
+        app:layout_constraintVertical_bias="0.182" />
+
+    <Button
+        android:id="@+id/btnMultiplicacion"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/cutive"
+        android:text="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRes"
+        app:layout_constraintVertical_bias="0.174" />
+
+    <Button
         android:id="@+id/btnResta"
         android:layout_width="51dp"
         android:layout_height="48dp"
@@ -136,6 +164,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="73dp"
+        android:clickable="?android:attr/windowOverscan"
         android:ems="10"
         android:fontFamily="@font/cutive"
         android:inputType="textPersonName"
