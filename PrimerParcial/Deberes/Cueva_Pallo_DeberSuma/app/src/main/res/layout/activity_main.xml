@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/cutive"
+        android:text="Suma de Dos Números"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSumar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/cutive"
+        android:text="Sumar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRes"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <Button
+        android:id="@+id/btnLimpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cutive"
+        android:text="Limpiar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRes"
+        app:layout_constraintVertical_bias="0.307" />
+
+    <TextView
+        android:id="@+id/lblNum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="137dp"
+        android:layout_marginEnd="43dp"
+        android:fontFamily="@font/cutive"
+        android:text="Número 1 :"
+        app:layout_constraintEnd_toStartOf="@+id/txtNum1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblNum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="41dp"
+        android:fontFamily="@font/cutive"
+        android:text="Número 2 :"
+        app:layout_constraintEnd_toStartOf="@+id/txtNum2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblNum1" />
+
+    <TextView
+        android:id="@+id/lblRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="7dp"
+        android:fontFamily="@font/cutive"
+        android:text="Resultado : "
+        app:layout_constraintBottom_toBottomOf="@+id/txtRes"
+        app:layout_constraintEnd_toStartOf="@+id/txtRes"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txtNum1"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="45dp"
+        android:ems="10"
+        android:fontFamily="@font/cutive"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/lblNum2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblNum1"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/txtNum2"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="64dp"
+        android:ems="10"
+        android:fontFamily="@font/cutive"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtRes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblNum2"
+        app:layout_constraintTop_toTopOf="@+id/txtNum1" />
+
+    <EditText
+        android:id="@+id/txtRes"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="73dp"
+        android:ems="10"
+        android:fontFamily="@font/cutive"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblRes"
+        app:layout_constraintTop_toBottomOf="@+id/lblNum2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
