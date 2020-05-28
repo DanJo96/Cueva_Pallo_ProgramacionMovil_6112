@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnResta"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/cutive"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRes"
+        app:layout_constraintVertical_bias="0.18" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -20,17 +34,17 @@
 
     <Button
         android:id="@+id/btnSumar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="52dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/cutive"
-        android:text="Sumar"
+        android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRes"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <Button
         android:id="@+id/btnLimpiar"
@@ -40,10 +54,10 @@
         android:text="Limpiar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRes"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintVertical_bias="0.552" />
 
     <TextView
         android:id="@+id/lblNum1"

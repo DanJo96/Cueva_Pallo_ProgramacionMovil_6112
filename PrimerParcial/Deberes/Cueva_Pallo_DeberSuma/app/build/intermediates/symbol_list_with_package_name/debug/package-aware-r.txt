@@ -747,6 +747,7 @@ id beginning
 id blocking
 id bottom
 id btnLimpiar
+id btnResta
 id btnSumar
 id buttonPanel
 id center_vertical

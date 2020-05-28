@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText Res;
     Button B1;
     Button B2;
+    Button B3;
     Suma S1;
 
     @Override
@@ -34,8 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Res = (EditText) findViewById(R.id.txtRes);
         B1 = (Button) findViewById(R.id.btnSumar);
         B2 = (Button) findViewById(R.id.btnLimpiar);
+        B3 = (Button) findViewById(R.id.btnResta);
         B1.setOnClickListener(this);
         B2.setOnClickListener(this);
+        B3.setOnClickListener(this);
         S1 = new Suma();
     }
 
@@ -50,6 +53,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     S1.setNum1(Double.parseDouble(T1.getText().toString()));
                     S1.setNum2(Double.parseDouble(T2.getText().toString()));
                     Res.setText(""+S1.operationsSum());
+                }
+                catch (Exception e)
+                {
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+                break;
+
+            case R.id.btnResta:
+                try
+                {
+                    S1.setNum1(Double.parseDouble(T1.getText().toString()));
+                    S1.setNum2(Double.parseDouble(T2.getText().toString()));
+                    Res.setText(""+S1.operationsRes());
                 }
                 catch (Exception e)
                 {

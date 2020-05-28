@@ -48,4 +48,5 @@ public class Suma
     {
         return num1+num2;
     }
+    public Double operationsRes() { return num1 - num2;}
 }
