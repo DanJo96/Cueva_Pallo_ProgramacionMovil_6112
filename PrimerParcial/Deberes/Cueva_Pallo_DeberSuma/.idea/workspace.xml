@@ -61,7 +61,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Android App.app">
-    <configuration name="ExampleUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PruebasUnitariasCalculadora" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -70,7 +70,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.cueva_pallo_debersuma" />
-      <option name="MAIN_CLASS_NAME" value="com.example.cueva_pallo_debersuma.ExampleUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="com.example.cueva_pallo_debersuma.PruebasUnitariasCalculadora" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -137,7 +137,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Android JUnit.ExampleUnitTest" />
+        <item itemvalue="Android JUnit.PruebasUnitariasCalculadora" />
       </list>
     </recent_temporary>
   </component>
