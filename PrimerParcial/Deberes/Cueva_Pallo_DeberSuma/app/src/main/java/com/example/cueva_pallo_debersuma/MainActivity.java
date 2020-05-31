@@ -16,16 +16,46 @@ import android.widget.EditText;
 import android.widget.Toast;
 import Modelo.OperacionesBasicas;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
+    /**
+     * The T 1.
+     */
     EditText T1;
+    /**
+     * The T 2.
+     */
     EditText T2;
+    /**
+     * The Res.
+     */
     EditText Res;
+    /**
+     * The B 1.
+     */
     Button B1;
+    /**
+     * The B 2.
+     */
     Button B2;
+    /**
+     * The B 3.
+     */
     Button B3;
+    /**
+     * The B 4.
+     */
     Button B4;
+    /**
+     * The B 5.
+     */
     Button B5;
+    /**
+     * The S 1.
+     */
     OperacionesBasicas S1;
 
     @Override
@@ -56,9 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnSumar:
                 try
                 {
-                    S1.setNum1(Double.parseDouble(T1.getText().toString()));
-                    S1.setNum2(Double.parseDouble(T2.getText().toString()));
-                    Res.setText(""+S1.operationsSum());
+
+                    Res.setText(""+S1.operationsSum(Double.parseDouble(T1.getText().toString()),Double.parseDouble(T2.getText().toString())));
                 }
                 catch (Exception e)
                 {
@@ -70,9 +99,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnResta:
                 try
                 {
-                    S1.setNum1(Double.parseDouble(T1.getText().toString()));
-                    S1.setNum2(Double.parseDouble(T2.getText().toString()));
-                    Res.setText(""+S1.operationsRes());
+
+                    Res.setText(""+S1.operationsRes(Double.parseDouble(T1.getText().toString()),Double.parseDouble(T2.getText().toString())));
                 }
                 catch (Exception e)
                 {
@@ -84,9 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnMultiplicacion:
                 try
                 {
-                    S1.setNum1(Double.parseDouble(T1.getText().toString()));
-                    S1.setNum2(Double.parseDouble(T2.getText().toString()));
-                    Res.setText(""+S1.operationsMul());
+                    Res.setText(""+S1.operationsMul(Double.parseDouble(T1.getText().toString()),Double.parseDouble(T2.getText().toString())));
                 }
                 catch (Exception e)
                 {
@@ -97,14 +123,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnDivision:
                 try
                 {
-                    S1.setNum1(Double.parseDouble(T1.getText().toString()));
-                    S1.setNum2(Double.parseDouble(T2.getText().toString()));
-                    if(S1.getNum2()==0){
+
+                    if(S1.operationsDiv(Double.parseDouble(T1.getText().toString()),Double.parseDouble(T2.getText().toString()))==null){
                         Toast M1 = Toast.makeText(getApplicationContext(),"No existe división para 0", Toast.LENGTH_LONG);
                         M1.show();
                     }
                     else
-                        Res.setText(""+S1.operationsDiv());
+                        Res.setText(""+S1.operationsDiv(Double.parseDouble(T1.getText().toString()),Double.parseDouble(T2.getText().toString())));
                 }
                 catch (Exception e)
                 {
