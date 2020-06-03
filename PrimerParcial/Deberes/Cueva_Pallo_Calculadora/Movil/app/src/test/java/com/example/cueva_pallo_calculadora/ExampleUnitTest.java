@@ -1,0 +1,154 @@
+
+
+package com.example.cueva_pallo_calculadora;
+
+import org.junit.Test;
+
+import Modelo.Operaciones;
+
+import static org.junit.Assert.*;
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
+public class ExampleUnitTest {
+    @Test
+    public void addition_isCorrect() {
+        assertEquals(4, 2 + 2);
+    }
+    @Test
+    public void sumaDosNumeros()
+    {
+        Operaciones PO1 = new Operaciones();
+        double control;
+        double esperado=6;
+        control=PO1.operationsSum(2,4);
+        assertEquals(esperado, control,0.0);
+    }
+
+    /**
+     * PU2: Suma de números negativos.
+     */
+    @Test
+    public void sumaDosNumerosNegativos()
+    {
+        Operaciones PO2 = new Operaciones();
+        double control;
+        double esperado=-6.7;
+        control=PO2.operationsSum(-3.2,-3.5);
+        assertEquals(esperado, control,0.0);
+    }
+    /**
+     * PU3: Resta dos números.
+     */
+    @Test
+    public void restaDosNumeros()
+    {
+        Operaciones PO3= new Operaciones();
+        double control;
+        double esperado=-2;
+        control=PO3.operationsRes(1,3);
+        assertEquals(esperado, control,0.0);
+    }
+
+    /**
+     * PU4: Resta dos números negativos.
+     */
+    @Test
+    public void restaDosNumerosNegativos()
+    {
+        Operaciones PO4 = new Operaciones();
+        double control;
+        double esperado=-2.2;
+        control=PO4.operationsRes(-5.2,-3);
+        assertEquals(esperado, control, 0.0);
+    }
+
+    /**
+     * PU5: Multiplicación dos números.
+     */
+    @Test
+    public void multiplicacionDosNumeros()
+    {
+        Operaciones PO5 = new Operaciones();
+        double control;
+        double esperado=0;
+        control=PO5 .operationsMul(6,0);
+        assertEquals(esperado, control,0.0);
+    }
+
+    /**
+     * PU6: Multiplicación dos números negativos.
+     */
+    @Test
+    public void multiplicacionDosNumerosNegativos()
+    {
+        Operaciones PO6 = new Operaciones();
+        double control;
+        double esperado=20;
+        control=PO6 .operationsMul(-4,-5);
+        assertEquals(esperado, control,0.0);
+    }
+    /**
+     * PU7: Multiplicación un número positivo y negativo.
+     */
+    @Test
+    public void multiplicacionDosNumerosPosNeg()
+    {
+        Operaciones PO7 = new Operaciones();
+        double control;
+        double esperado= -15;
+        control=PO7 .operationsMul(3,-5);
+        assertEquals(esperado, control,0.0);
+    }
+    /**
+     * PU8: División de dos números.
+     */
+    @Test
+    public void divisionDosNumeros()
+    {
+        Operaciones PO8 = new Operaciones();
+        double control;
+        double esperado=0.25;
+        control=PO8.operationsDiv(1,4);
+        assertEquals(esperado, control,0.0);
+    }
+
+    /**
+     * PU9: División de dos números.
+     */
+    @Test
+    public void divisionDosNumerosNegativos()
+    {
+        Operaciones PO9 = new Operaciones();
+        double control;
+        double esperado=0.25;
+        control=PO9.operationsDiv(-1,-4);
+        assertEquals(esperado, control,0.0);
+    }
+
+    /**
+     * PU10: División de un número positivo y negativo.
+     */
+    @Test
+    public void divisionDosNumerosPosNeg()
+    {
+        Operaciones PO10 = new Operaciones();
+        double control;
+        double esperado=-0.25;
+        control=PO10.operationsDiv(1,-4);
+        assertEquals(esperado, control,0.0);
+    }
+
+    /**
+     * PU11: División para 0.
+     */
+    @Test
+    public void divisionPara0()
+    {
+        Operaciones PO11 = new Operaciones();
+        assertEquals(null, PO11.operationsDiv(8,0));
+    }
+}

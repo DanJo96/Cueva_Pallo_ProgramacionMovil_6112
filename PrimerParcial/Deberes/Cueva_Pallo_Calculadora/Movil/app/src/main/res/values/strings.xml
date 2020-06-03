@@ -1,0 +1,11 @@
+<!--<***********************************************
+ *  Programa: Suma 2 Numeros                   *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  26/05/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************>-->
+<resources>
+    <string name="app_name">Cueva_Pallo_Calculadora</string>
+</resources>

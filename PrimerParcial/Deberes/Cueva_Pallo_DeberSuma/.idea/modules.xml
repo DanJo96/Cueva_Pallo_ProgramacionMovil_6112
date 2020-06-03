@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cueva_Pallo_DeberSuma.iml" filepath="$PROJECT_DIR$/Cueva_Pallo_DeberSuma.iml" group="Cueva_Pallo_DeberSuma" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Cueva_Pallo_DeberSuma/app" />
-    </modules>
-  </component>
-</project>
