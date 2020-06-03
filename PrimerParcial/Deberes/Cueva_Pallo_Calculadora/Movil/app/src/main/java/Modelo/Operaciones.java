@@ -15,6 +15,7 @@ package Modelo;
 public class Operaciones {
     private double numero1;
     private double numero2;
+    private double M=0;
     /**
      * The Operador.
      */
@@ -25,6 +26,14 @@ public class Operaciones {
      */
     public Operaciones() {
 
+    }
+
+    public double getM() {
+        return M;
+    }
+
+    public void setM(double m) {
+        M = m;
     }
 
     /**
@@ -178,6 +187,12 @@ public class Operaciones {
 
         }
         return null;
+    }
+    public void operacionMP(){
+        M=operationsSum(M,numero1);
+    }
+    public void operacionMN(){
+        M=operationsRes(M,numero1);
     }
 
 

@@ -293,6 +293,50 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        btnMP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etconcatenar = (EditText)findViewById(R.id.etProceso);
+                    opera.setNumero1(Double.parseDouble(etconcatenar.getText().toString()));
+                    opera.operacionMP();
+                    etProceso.setText("");
+                }catch (Exception e){
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnMN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etconcatenar = (EditText)findViewById(R.id.etProceso);
+                    opera.setNumero1(Double.parseDouble(etconcatenar.getText().toString()));
+                    opera.operacionMN();
+                    etProceso.setText("");
+                }catch (Exception e){
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnMR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    opera.setOperador("MR");
+                    etconcatenar = (EditText)findViewById(R.id.etProceso);
+                    etProceso.setText(""+opera.getM());
+                }catch (Exception e){
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
         btnLimpiar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
