@@ -12,7 +12,8 @@ package Modelo;
 /**
  * The type Operaciones.
  */
-public class Operaciones {
+public class Operaciones
+{
     private double numero1;
     private double numero2;
     private double M=0;
@@ -95,25 +96,28 @@ public class Operaciones {
      *
      * @return the double
      */
-    public Double realizarOperacion(){
+    public Double realizarOperacion()
+    {
         double resultado=0;
-        if(operador.equals("+")){
+        if(operador.equals("+"))
+        {
             resultado = operationsSum(numero1,numero2);
             numero1=resultado;
         }
-        if(operador.equals("-")){
+        if(operador.equals("-"))
+        {
             resultado = operationsRes(numero1,numero2);
             numero1=resultado;
         }
-        if(operador.equals("*")){
+        if(operador.equals("*"))
+        {
             resultado =operationsMul(numero1,numero2);
             numero1=resultado;
         }
-        if(operador.equals("/")){
-
-                resultado =operationsDiv(numero1,numero2);
-                numero1=resultado;
-
+        if(operador.equals("/"))
+        {
+            resultado =operationsDiv(numero1,numero2);
+            numero1=resultado;
         }
         return resultado;
     }
@@ -143,15 +147,18 @@ public class Operaciones {
      * @param num2 the num 2
      * @return the double
      */
-    public Double operationsRes(double num1, double num2) {
-        try{
+    public Double operationsRes(double num1, double num2)
+    {
+        try
+        {
             return num1 - num2;
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
 
         }
         return null;
     }
-
 
     /**
      * Operations mul double.
@@ -160,10 +167,14 @@ public class Operaciones {
      * @param num2 the num 2
      * @return the double
      */
-    public Double operationsMul(double num1, double num2) {
-        try{
+    public Double operationsMul(double num1, double num2)
+    {
+        try
+        {
             return num1 * num2;
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
 
         }
         return null;
@@ -176,22 +187,30 @@ public class Operaciones {
      * @param num2 the num 2
      * @return the double
      */
-    public Double operationsDiv(double num1, double num2) {
-        try{
-            if (num2==0){
+    public Double operationsDiv(double num1, double num2)
+    {
+        try
+        {
+            if (num2==0)
+            {
                 return null;
             }
             else
                 return num1 / num2;
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
 
         }
         return null;
     }
-    public void operacionMP(){
+
+    public void operacionMP()
+    {
         M=operationsSum(M,numero1);
     }
-    public void operacionMN(){
+    public void operacionMN()
+    {
         M=operationsRes(M,numero1);
     }
 

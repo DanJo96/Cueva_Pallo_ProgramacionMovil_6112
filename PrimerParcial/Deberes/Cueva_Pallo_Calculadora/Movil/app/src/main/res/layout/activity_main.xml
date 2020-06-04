@@ -55,7 +55,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:layout_below="@+id/etProceso"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:layout_marginLeft="50dp" />
+    android:layout_marginLeft="50dp"
+    android:background="@drawable/boton_redondo"/>
 <!--</LinearLayout>-->
 
 <Button
@@ -66,7 +67,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/etProceso"
     android:layout_toRightOf="@+id/btnSiete"
-    android:layout_toEndOf="@+id/btnSiete" />
+    android:layout_toEndOf="@+id/btnSiete"
+    android:background="@drawable/boton_redondo"/>
 <Button
     android:id="@+id/btnNueve"
     android:layout_width="70dp"
@@ -75,7 +77,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/etProceso"
     android:layout_toRightOf="@+id/btnOcho"
-    android:layout_toEndOf="@+id/btnOcho" />
+    android:layout_toEndOf="@+id/btnOcho"
+    android:background="@drawable/boton_redondo"/>
 <Button
     android:id="@+id/btnDiv"
     android:layout_width="70dp"
@@ -84,7 +87,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/etProceso"
     android:layout_toRightOf="@+id/btnNueve"
-    android:layout_toEndOf="@+id/btnNueve" />
+    android:layout_toEndOf="@+id/btnNueve"
+    android:background="@drawable/btn_nr"/>
 <!--**Fila 2***-->
 <Button
     android:id="@+id/btnCuatro"
@@ -95,7 +99,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:layout_below="@+id/btnSiete"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:layout_marginLeft="50dp"/>
+    android:layout_marginLeft="50dp"
+    android:background="@drawable/boton_redondo"/>
 
 
 <Button
@@ -106,7 +111,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnOcho"
     android:layout_toRightOf="@+id/btnCuatro"
-    android:layout_toEndOf="@+id/btnCuatro" />
+    android:layout_toEndOf="@+id/btnCuatro"
+    android:background="@drawable/boton_redondo"/>
 <Button
     android:id="@+id/btnSeis"
     android:layout_width="70dp"
@@ -115,7 +121,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnNueve"
     android:layout_toRightOf="@+id/btnCinco"
-    android:layout_toEndOf="@+id/btnCinco" />
+    android:layout_toEndOf="@+id/btnCinco"
+    android:background="@drawable/boton_redondo"/>
 <Button
     android:id="@+id/btnMulti"
     android:layout_width="70dp"
@@ -124,7 +131,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnDiv"
     android:layout_toRightOf="@+id/btnSeis"
-    android:layout_toEndOf="@+id/btnSeis" />
+    android:layout_toEndOf="@+id/btnSeis"
+    android:background="@drawable/btn_nr"/>
 <!--**Fila 3***-->
 
 <Button
@@ -136,7 +144,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:layout_below="@+id/btnCuatro"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:layout_marginLeft="50dp" />
+    android:layout_marginLeft="50dp"
+    android:background="@drawable/boton_redondo"/>
 
 <Button
     android:id="@+id/btnDos"
@@ -146,7 +155,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnCinco"
     android:layout_toRightOf="@+id/btnUno"
-    android:layout_toEndOf="@+id/btnUno" />
+    android:layout_toEndOf="@+id/btnUno"
+    android:background="@drawable/boton_redondo"/>
 <Button
     android:id="@+id/btnTres"
     android:layout_width="70dp"
@@ -155,7 +165,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnSeis"
     android:layout_toRightOf="@+id/btnDos"
-    android:layout_toEndOf="@+id/btnDos" />
+    android:layout_toEndOf="@+id/btnDos"
+    android:background="@drawable/boton_redondo"/>
 <Button
     android:id="@+id/btnResta"
     android:layout_width="70dp"
@@ -164,7 +175,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnMulti"
     android:layout_toRightOf="@+id/btnTres"
-    android:layout_toEndOf="@+id/btnTres" />
+    android:layout_toEndOf="@+id/btnTres"
+    android:background="@drawable/btn_nr"/>
 <!--****Fila 4-->
 
 <Button
@@ -176,7 +188,9 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:layout_below="@+id/btnUno"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:layout_marginLeft="50dp" />
+    android:layout_marginLeft="50dp"
+    android:background="@drawable/btn_vl"
+    />
 
 <Button
     android:id="@+id/btnCero"
@@ -186,7 +200,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnDos"
     android:layout_toRightOf="@+id/btnPunto"
-    android:layout_toEndOf="@+id/btnPunto" />
+    android:layout_toEndOf="@+id/btnPunto"
+    android:background="@drawable/boton_redondo"/>
 <Button
     android:id="@+id/btnIgual"
     android:layout_width="70dp"
@@ -195,7 +210,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnTres"
     android:layout_toRightOf="@+id/btnCero"
-    android:layout_toEndOf="@+id/btnCero" />
+    android:layout_toEndOf="@+id/btnCero"
+    android:background="@drawable/btn_vl"/>
 <Button
     android:id="@+id/btnSuma"
     android:layout_width="70dp"
@@ -204,7 +220,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:textSize="28dp"
     android:layout_below="@+id/btnResta"
     android:layout_toRightOf="@+id/btnIgual"
-    android:layout_toEndOf="@+id/btnIgual" />
+    android:layout_toEndOf="@+id/btnIgual"
+    android:background="@drawable/btn_nr"/>
 
 
     <!--****Fila 4-->
@@ -217,7 +234,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_below="@+id/btnPunto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/btn_rj"/>
 
     <Button
         android:id="@+id/btnMN"
@@ -227,7 +245,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:textSize="28dp"
         android:layout_below="@+id/btnCero"
         android:layout_toRightOf="@+id/btnMP"
-        android:layout_toEndOf="@+id/btnMP" />
+        android:layout_toEndOf="@+id/btnMP"
+        android:background="@drawable/btn_rj"/>
     <Button
         android:id="@+id/btnMR"
         android:layout_width="70dp"
@@ -236,7 +255,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:textSize="28dp"
         android:layout_below="@+id/btnIgual"
         android:layout_toRightOf="@+id/btnMN"
-        android:layout_toEndOf="@+id/btnMN" />
+        android:layout_toEndOf="@+id/btnMN"
+        android:background="@drawable/btn_rj"/>
     <!--****LIMPIAR-->
     <Button
         android:id="@+id/btnLimpiar"
@@ -249,6 +269,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_marginLeft="48dp"
         android:layout_marginTop="75dp"
         android:text="Limpiar"
-        android:textSize="28dp" />
+        android:textSize="28dp"
+        android:background="@drawable/btn_vr"/>
 
 </RelativeLayout>

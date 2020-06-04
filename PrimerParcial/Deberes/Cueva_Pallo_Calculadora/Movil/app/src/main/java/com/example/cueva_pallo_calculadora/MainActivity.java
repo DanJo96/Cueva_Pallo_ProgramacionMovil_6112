@@ -108,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
     Operaciones opera;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         opera= new Operaciones();
@@ -337,7 +338,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+        btnLimpiar.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 numero1 = 0;
