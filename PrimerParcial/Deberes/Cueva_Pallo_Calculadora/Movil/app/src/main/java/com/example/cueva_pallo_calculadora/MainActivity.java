@@ -2,7 +2,7 @@
  *  Programa: Suma 2 Numeros                   *
  *	Autores: Cueva - Pallo					   *
  *	Fecha Creación: 26/05/2020				   *
- *	Fecha Modificación:  26/05/2020		       *
+ *	Fecha Modificación:  05/05/2020		       *
  *	Carrera: Sistemas e Informatica			   *
  *	Profesor: Ing Fernando Solis			   *
  **********************************************/
@@ -26,82 +26,91 @@ public class MainActivity extends AppCompatActivity {
     /**
      * The Btn cero.
      */
-    Button btnCero, /**
+    Button btnCero,
+    /**
      * The Btn uno.
      */
-    btnUno, /**
+    btnUno,
+    /**
      * The Btn dos.
      */
-    btnDos, /**
+    btnDos,
+    /**
      * The Btn tres.
      */
-    btnTres, /**
+    btnTres,
+    /**
      * The Btn cuatro.
      */
-    btnCuatro, /**
+    btnCuatro,
+    /**
      * The Btn cinco.
      */
-    btnCinco, /**
+    btnCinco,
+    /**
      * The Btn seis.
      */
-    btnSeis, /**
+    btnSeis,
+    /**
      * The Btn siete.
      */
-    btnSiete, /**
+    btnSiete,
+    /**
      * The Btn ocho.
      */
     btnOcho,
     /**
      * The Btn nueve.
      */
-    btnNueve, /**
+    btnNueve,
+    /**
      * The Btn punto.
      */
-    btnPunto, /**
+    btnPunto,
+    /**
      * The Btn igual.
      */
-    btnIgual, /**
+    btnIgual,
+    /**
      * The Btn suma.
      */
-    btnSuma, /**
+    btnSuma,
+    /**
      * The Btn resta.
      */
-    btnResta, /**
+    btnResta,
+    /**
      * The Btn multi.
      */
-    btnMulti, /**
+    btnMulti,
+    /**
      * The Btn div.
      */
-    btnDiv, /**
+    btnDiv,
+    /**
      * The Btn limpiar.
      */
-    btnLimpiar, /**
+    btnLimpiar,
+    /**
      * The Btn mn.
      */
-    btnMN, /**
+    btnMN,
+    /**
      * The Btn mp.
      */
-    btnMP, /**
+    btnMP,
+    /**
      * The Btn mr.
      */
     btnMR;
     /**
      * The Et proceso.
      */
-    EditText etProceso, /**
+    EditText etProceso,
+    /**
      * The Etconcatenar.
      */
     etConcatenar;
-    /**
-     * The Numero 1.
-     */
-    double numero1, /**
-     * The Numero 2.
-     */
-    numero2, /**
-     * The Resultado.
-     */
-    resultado;
     /**
      * The Opera.
      */
@@ -219,9 +228,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    opera.setNumero2(Double.parseDouble(etConcatenar.getText().toString()));
+                    Double res=opera.realizarOperacion(Double.parseDouble(etConcatenar.getText().toString()));
                     etProceso.setText("");
-                    Double res=opera.realizarOperacion();
                     if(res==null){
                         Toast M1 = Toast.makeText(getApplicationContext(),"No existe división para 0", Toast.LENGTH_LONG);
                         M1.show();
@@ -241,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     opera.setOperador("+");
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    opera.setNumero1(Double.parseDouble(etConcatenar.getText().toString()));
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
                     etProceso.setText("");
                 }catch (Exception e){
                     Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
@@ -255,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     opera.setOperador("-");
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    opera.setNumero1(Double.parseDouble(etConcatenar.getText().toString()));
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
                     etProceso.setText("");
                 }catch (Exception e){
                     Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
@@ -299,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    opera.setNumero1(Double.parseDouble(etConcatenar.getText().toString()));
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
                     opera.operacionMP();
                     etProceso.setText("");
                 }catch (Exception e){
@@ -342,8 +350,6 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View v) {
-                numero1 = 0;
-                numero2 = 0;
                 etProceso.setText("");
             }
         });

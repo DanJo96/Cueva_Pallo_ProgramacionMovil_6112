@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<***********************************************
+ *  Programa: Suma 2 Numeros                   *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  05/06/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************>-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="#FF8F00"> </solid>
     <corners android:radius="20dp"> </corners>

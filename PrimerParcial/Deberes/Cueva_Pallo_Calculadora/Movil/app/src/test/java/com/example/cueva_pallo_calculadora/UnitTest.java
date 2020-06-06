@@ -1,4 +1,12 @@
 
+/***********************************************
+ *  Programa: Suma 2 Numeros                   *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  05/05/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************/
 
 package com.example.cueva_pallo_calculadora;
 
@@ -13,11 +21,18 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+public class UnitTest {
+    /**
+     * Addition is correct.
+     */
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    /**
+     * Suma dos numeros.
+     */
     @Test
     public void sumaDosNumeros()
     {
@@ -40,6 +55,7 @@ public class ExampleUnitTest {
         control=PO2.operationsSum(-3.2,-3.5);
         assertEquals(esperado, control,0.0);
     }
+
     /**
      * PU3: Resta dos números.
      */
@@ -91,6 +107,7 @@ public class ExampleUnitTest {
         control=PO6 .operationsMul(-4,-5);
         assertEquals(esperado, control,0.0);
     }
+
     /**
      * PU7: Multiplicación un número positivo y negativo.
      */
@@ -103,6 +120,7 @@ public class ExampleUnitTest {
         control=PO7 .operationsMul(3,-5);
         assertEquals(esperado, control,0.0);
     }
+
     /**
      * PU8: División de dos números.
      */

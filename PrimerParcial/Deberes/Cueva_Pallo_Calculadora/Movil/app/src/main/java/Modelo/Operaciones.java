@@ -2,7 +2,7 @@
  *  Programa: Suma 2 Numeros                   *
  *	Autores: Cueva - Pallo					   *
  *	Fecha Creación: 26/05/2020				   *
- *	Fecha Modificación:  26/05/2020		       *
+ *	Fecha Modificación:  05/05/2020		       *
  *	Carrera: Sistemas e Informatica			   *
  *	Profesor: Ing Fernando Solis			   *
  **********************************************/
@@ -14,8 +14,8 @@ package Modelo;
  */
 public class Operaciones
 {
+    private Numero numero;
     private double numero1;
-    private double numero2;
     private double M=0;
     /**
      * The Operador.
@@ -26,13 +26,32 @@ public class Operaciones
      * Instantiates a new Operaciones.
      */
     public Operaciones() {
-
+        numero = new Numero();
     }
+
+    public Numero getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Numero numero) {
+        this.numero = numero;
+    }
+
+    /**
+     * Gets m.
+     *
+     * @return the m
+     */
 
     public double getM() {
         return M;
     }
 
+    /**
+     * Sets m.
+     *
+     * @param m the m
+     */
     public void setM(double m) {
         M = m;
     }
@@ -53,24 +72,6 @@ public class Operaciones
      */
     public void setNumero1(double numero1) {
         this.numero1 = numero1;
-    }
-
-    /**
-     * Gets numero 2.
-     *
-     * @return the numero 2
-     */
-    public double getNumero2() {
-        return numero2;
-    }
-
-    /**
-     * Sets numero 2.
-     *
-     * @param numero2 the numero 2
-     */
-    public void setNumero2(double numero2) {
-        this.numero2 = numero2;
     }
 
     /**
@@ -96,18 +97,18 @@ public class Operaciones
      *
      * @return the double
      */
-    public Double realizarOperacion()
+    public Double realizarOperacion(double numero2)
     {
         double resultado=0;
         if(operador.equals("+"))
         {
-            resultado = operationsSum(numero1,numero2);
-            numero1=resultado;
+            resultado = operationsSum(numero.getValor(),numero2);
+            numero.setValor(resultado);
         }
         if(operador.equals("-"))
         {
-            resultado = operationsRes(numero1,numero2);
-            numero1=resultado;
+            resultado = operationsRes(numero.getValor(),numero2);
+            numero.setValor(resultado);
         }
         if(operador.equals("*"))
         {
@@ -205,14 +206,20 @@ public class Operaciones
         return null;
     }
 
+    /**
+     * Operacion mp.
+     */
     public void operacionMP()
     {
-        M=operationsSum(M,numero1);
+        M=operationsSum(M,numero.getValor());
     }
+
+    /**
+     * Operacion mn.
+     */
     public void operacionMN()
     {
         M=operationsRes(M,numero1);
     }
-
 
 }
