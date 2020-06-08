@@ -3,7 +3,8 @@ package Modelo;
 /**
  * The type Numero.
  */
-public class Numero {
+public class Numero
+{
     private Double valor;
 
     /**

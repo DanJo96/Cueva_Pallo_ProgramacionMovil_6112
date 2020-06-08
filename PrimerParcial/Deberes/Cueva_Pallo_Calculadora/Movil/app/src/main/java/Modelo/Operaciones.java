@@ -15,7 +15,6 @@ package Modelo;
 public class Operaciones
 {
     private Numero numero;
-    private double numero1;
     private double M=0;
     /**
      * The Operador.
@@ -57,24 +56,6 @@ public class Operaciones
     }
 
     /**
-     * Gets numero 1.
-     *
-     * @return the numero 1
-     */
-    public double getNumero1() {
-        return numero1;
-    }
-
-    /**
-     * Sets numero 1.
-     *
-     * @param numero1 the numero 1
-     */
-    public void setNumero1(double numero1) {
-        this.numero1 = numero1;
-    }
-
-    /**
      * Gets operador.
      *
      * @return the operador
@@ -112,13 +93,18 @@ public class Operaciones
         }
         if(operador.equals("*"))
         {
-            resultado =operationsMul(numero1,numero2);
-            numero1=resultado;
+            resultado =operationsMul(numero.getValor(),numero2);
+            numero.setValor(resultado);
         }
         if(operador.equals("/"))
         {
-            resultado =operationsDiv(numero1,numero2);
-            numero1=resultado;
+            resultado =operationsDiv(numero.getValor(),numero2);
+            numero.setValor(resultado);
+        }
+        if(operador.equals("^"))
+        {
+            resultado =operationsPot(numero.getValor(),numero2);
+            numero.setValor(resultado);
         }
         return resultado;
     }
@@ -219,7 +205,38 @@ public class Operaciones
      */
     public void operacionMN()
     {
-        M=operationsRes(M,numero1);
+        M=operationsRes(M,numero.getValor());
+    }
+
+    public Double operationsFact(double num1)
+    {
+        double acumulador = 1;
+        try
+        {
+            for(int i=2; i<=num1; i++)
+            {
+                acumulador = acumulador * i;
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        return acumulador;
+    }
+
+    public Double operationsPot(double base, double exponente)
+    {
+        try
+        {
+            return Math.pow(base,exponente);
+        }
+        catch (Exception e)
+        {
+
+        }
+        return null;
     }
 
 }

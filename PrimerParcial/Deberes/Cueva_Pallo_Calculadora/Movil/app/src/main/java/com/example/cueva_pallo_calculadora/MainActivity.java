@@ -102,10 +102,13 @@ public class MainActivity extends AppCompatActivity {
     /**
      * The Btn mr.
      */
-    btnMR;
+    btnMR,
     /**
      * The Et proceso.
      */
+    btnFac,
+
+    btnPot;
     EditText etProceso,
     /**
      * The Etconcatenar.
@@ -142,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
         btnMN = (Button)findViewById(R.id.btnMN);
         btnMP = (Button)findViewById(R.id.btnMP);
         btnMR = (Button)findViewById(R.id.btnMR);
+        btnFac = (Button)findViewById(R.id.btnFact);
+        btnPot = (Button)findViewById(R.id.btnPot);
         etProceso = (EditText)findViewById(R.id.etProceso);
 
         btnCero.setOnClickListener(new View.OnClickListener() {
@@ -225,12 +230,14 @@ public class MainActivity extends AppCompatActivity {
 
         btnIgual.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 try{
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
                     Double res=opera.realizarOperacion(Double.parseDouble(etConcatenar.getText().toString()));
                     etProceso.setText("");
-                    if(res==null){
+                    if(res==null)
+                    {
                         Toast M1 = Toast.makeText(getApplicationContext(),"No existe división para 0", Toast.LENGTH_LONG);
                         M1.show();
                     }
@@ -278,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     opera.setOperador("*");
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    opera.setNumero1(Double.parseDouble(etConcatenar.getText().toString()));
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
                     etProceso.setText("");
                 }catch (Exception e){
                     Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
@@ -293,7 +300,22 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     opera.setOperador("/");
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    opera.setNumero1(Double.parseDouble(etConcatenar.getText().toString()));
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
+                    etProceso.setText("");
+                }catch (Exception e){
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnPot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    opera.setOperador("^");
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
                     etProceso.setText("");
                 }catch (Exception e){
                     Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
@@ -322,7 +344,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    opera.setNumero1(Double.parseDouble(etConcatenar.getText().toString()));
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
                     opera.operacionMN();
                     etProceso.setText("");
                 }catch (Exception e){
@@ -339,6 +361,22 @@ public class MainActivity extends AppCompatActivity {
                     opera.setOperador("MR");
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
                     etProceso.setText(""+opera.getM());
+                }catch (Exception e){
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+
+        btnFac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    Double fact=opera.operationsFact(Double.parseDouble(etConcatenar.getText().toString()));
+                    etProceso.setText(""+fact);
+
                 }catch (Exception e){
                     Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
                     M1.show();

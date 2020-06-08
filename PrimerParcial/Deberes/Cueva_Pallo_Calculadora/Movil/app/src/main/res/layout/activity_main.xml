@@ -177,6 +177,16 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:layout_toRightOf="@+id/btnTres"
     android:layout_toEndOf="@+id/btnTres"
     android:background="@drawable/btn_nr"/>
+    <Button
+        android:id="@+id/btnPot"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:text="^"
+        android:textSize="28dp"
+        android:layout_below="@+id/btnMulti"
+        android:layout_toRightOf="@+id/btnResta"
+        android:background="@drawable/btn_nr"/>
+
 <!--****Fila 4-->
 
 <Button
@@ -225,6 +235,21 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <!--****Fila 4-->
+
+    <Button
+        android:id="@+id/btnFact"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/btnResta"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/btnIgual"
+        android:layout_toRightOf="@+id/btnSuma"
+        android:background="@drawable/btn_nr"
+        android:text="!"
+        android:textSize="28dp" />
+
     <Button
         android:id="@+id/btnMP"
         android:layout_width="70dp"

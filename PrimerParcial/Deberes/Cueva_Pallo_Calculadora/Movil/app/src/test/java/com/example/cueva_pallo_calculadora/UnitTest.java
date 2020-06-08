@@ -169,4 +169,32 @@ public class UnitTest {
         Operaciones PO11 = new Operaciones();
         assertEquals(null, PO11.operationsDiv(8,0));
     }
+
+    /**
+     * PU12: Factorial.
+     */
+    @Test
+    public void factorial()
+    {
+        Operaciones PO12 = new Operaciones();
+        double control;
+        double esperado= 6;
+        control = PO12.operationsFact(3);
+        assertEquals(esperado, control, 0.0);
+    }
+
+    /**
+     * PU13: Potencia.
+     */
+    @Test
+    public void potencia()
+    {
+        Operaciones PO13 = new Operaciones();
+        double control;
+        double esperado= 9;
+        control = PO13.operationsPot(3,2);
+        assertEquals(esperado, control, 0.0);
+    }
+
+
 }
