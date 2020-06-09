@@ -133,6 +133,16 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:layout_toRightOf="@+id/btnSeis"
     android:layout_toEndOf="@+id/btnSeis"
     android:background="@drawable/btn_nr"/>
+    <Button
+        android:id="@+id/btnModulo"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:text="%"
+        android:textSize="28dp"
+        android:layout_below="@+id/btnDiv"
+        android:layout_toRightOf="@+id/btnMulti"
+        android:layout_toEndOf="@+id/btnMulti"
+        android:background="@drawable/btn_nr"/>
 <!--**Fila 3***-->
 
 <Button

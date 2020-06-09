@@ -109,6 +109,8 @@ public class MainActivity extends AppCompatActivity
      */
     btnFac,
 
+    btnMod,
+
     /**
      * The Btn pot.
      */
@@ -154,6 +156,7 @@ public class MainActivity extends AppCompatActivity
         btnMR = (Button)findViewById(R.id.btnMR);
         btnFac = (Button)findViewById(R.id.btnFact);
         btnPot = (Button)findViewById(R.id.btnPot);
+        btnMod = (Button)findViewById(R.id.btnModulo);
         etProceso = (EditText)findViewById(R.id.etProceso);
 
         btnCero.setOnClickListener(new View.OnClickListener() {
@@ -368,6 +371,21 @@ public class MainActivity extends AppCompatActivity
                     opera.setOperador("MR");
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
                     etProceso.setText(""+opera.getM());
+                }catch (Exception e){
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnMod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    opera.setOperador("%");
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    opera.getNumero().setValor(Double.parseDouble(etConcatenar.getText().toString()));
+                    etProceso.setText("");
                 }catch (Exception e){
                     Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
                     M1.show();

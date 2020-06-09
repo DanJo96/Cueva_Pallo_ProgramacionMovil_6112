@@ -6,8 +6,12 @@
  *	Carrera: Sistemas e Informatica			   *
  *	Profesor: Ing Fernando Solis			   *
  **********************************************/
-
 package Modelo;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.math.*;
 
 /**
  * The type Operaciones.
@@ -89,7 +93,8 @@ public class Operaciones
      * @return the double
      */
 
-    public Double realizarOperacion(double numero2)
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public Double realizarOperacion(Double numero2)
     {
         double resultado=0;
         if(operador.equals("+"))
@@ -115,6 +120,11 @@ public class Operaciones
         if(operador.equals("^"))
         {
             resultado =operationsPot(numero.getValor(),numero2);
+            numero.setValor(resultado);
+        }
+        if(operador.equals("%"))
+        {
+            resultado = operationsMod(numero.getValor(),numero2);
             numero.setValor(resultado);
         }
         return resultado;
@@ -255,6 +265,22 @@ public class Operaciones
         try
         {
             return Math.pow(base,exponente);
+        }
+        catch (Exception e)
+        {
+
+        }
+        return null;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public Double operationsMod(Double num1, Double num2)
+    {
+        try
+        {
+
+            Integer aux=Math.floorMod(num1.intValue(),num2.intValue());
+            return aux.doubleValue();
         }
         catch (Exception e)
         {
