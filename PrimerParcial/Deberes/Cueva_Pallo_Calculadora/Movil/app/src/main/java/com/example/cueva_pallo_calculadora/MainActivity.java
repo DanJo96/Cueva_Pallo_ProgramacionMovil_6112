@@ -109,7 +109,13 @@ public class MainActivity extends AppCompatActivity
      */
     btnFac,
 
+    /**
+     * The Btn pot.
+     */
     btnPot;
+    /**
+     * The Et proceso.
+     */
     EditText etProceso,
     /**
      * The Etconcatenar.

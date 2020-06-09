@@ -28,10 +28,20 @@ public class Operaciones
         numero = new Numero();
     }
 
+    /**
+     * Gets numero.
+     *
+     * @return the numero
+     */
     public Numero getNumero() {
         return numero;
     }
 
+    /**
+     * Sets numero.
+     *
+     * @param numero the numero
+     */
     public void setNumero(Numero numero) {
         this.numero = numero;
     }
@@ -41,7 +51,6 @@ public class Operaciones
      *
      * @return the m
      */
-
     public double getM() {
         return M;
     }
@@ -76,8 +85,10 @@ public class Operaciones
     /**
      * Realizar operacion double.
      *
+     * @param numero2 the numero 2
      * @return the double
      */
+
     public Double realizarOperacion(double numero2)
     {
         double resultado=0;
@@ -208,6 +219,12 @@ public class Operaciones
         M=operationsRes(M,numero.getValor());
     }
 
+    /**
+     * Operations fact double.
+     *
+     * @param num1 the num 1
+     * @return the double
+     */
     public Double operationsFact(double num1)
     {
         double acumulador = 1;
@@ -226,6 +243,13 @@ public class Operaciones
         return acumulador;
     }
 
+    /**
+     * Operations pot double.
+     *
+     * @param base      the base
+     * @param exponente the exponente
+     * @return the double
+     */
     public Double operationsPot(double base, double exponente)
     {
         try
