@@ -1,6 +1,6 @@
 
 /***********************************************
- *  Programa: Suma 2 Numeros                   *
+ *  Programa: Calculadora Básica               *
  *	Autores: Cueva - Pallo					   *
  *	Fecha Creación: 26/05/2020				   *
  *	Fecha Modificación:  05/05/2020		       *
