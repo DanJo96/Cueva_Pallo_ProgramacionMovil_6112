@@ -262,9 +262,14 @@ public class Operaciones
      */
     public Double operationsPot(double base, double exponente)
     {
+        double acumPot=1;
         try
         {
-            return Math.pow(base,exponente);
+            for(int i=0; i<exponente; i++)
+            {
+                acumPot*=base;
+            }
+            return acumPot;
         }
         catch (Exception e)
         {
@@ -278,7 +283,6 @@ public class Operaciones
     {
         try
         {
-
             Integer aux=Math.floorMod(num1.intValue(),num2.intValue());
             return aux.doubleValue();
         }
