@@ -9,8 +9,10 @@
 
 package com.example.cueva_pallo_calculadora;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -111,6 +113,10 @@ public class MainActivity extends AppCompatActivity
 
     btnMod,
 
+    btnRai,
+
+    btnLn,
+
     /**
      * The Btn pot.
      */
@@ -157,8 +163,9 @@ public class MainActivity extends AppCompatActivity
         btnFac = (Button)findViewById(R.id.btnFact);
         btnPot = (Button)findViewById(R.id.btnPot);
         btnMod = (Button)findViewById(R.id.btnModulo);
+        btnRai = (Button)findViewById(R.id.btnRai);
+        btnLn = (Button)findViewById(R.id.btnLn);
         etProceso = (EditText)findViewById(R.id.etProceso);
-
         btnCero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -239,6 +246,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         btnIgual.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v)
             {
@@ -395,15 +403,47 @@ public class MainActivity extends AppCompatActivity
         });
 
         btnFac.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            try{
+                etConcatenar = (EditText)findViewById(R.id.etProceso);
+                Double fact=opera.operationsFact(Double.parseDouble(etConcatenar.getText().toString()));
+                etProceso.setText(""+fact);
+
+            }catch (Exception e){
+                Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                M1.show();
+            }
+
+        }
+        });
+        btnRai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
-                    Double fact=opera.operationsFact(Double.parseDouble(etConcatenar.getText().toString()));
-                    etProceso.setText(""+fact);
-
+                    Double rai=opera.operationsRai(Double.parseDouble(etConcatenar.getText().toString()));
+                    if(rai==null)
+                        throw new Exception();
+                    etProceso.setText(""+rai);
                 }catch (Exception e){
-                    Toast M1 = Toast.makeText(getApplicationContext(),"Datos Invàlidos", Toast.LENGTH_LONG);
+                    Toast M1 = Toast.makeText(getApplicationContext(),"No existe raíz negativa!!", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnLn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    Double rai=opera.operationsLn(Double.parseDouble(etConcatenar.getText().toString()));
+                    if(rai==null)
+                        throw new Exception();
+                    etProceso.setText(""+rai);
+                }catch (Exception e){
+                    Toast M1 = Toast.makeText(getApplicationContext(),"No existe el logaritmos!!", Toast.LENGTH_LONG);
                     M1.show();
                 }
 

@@ -89,6 +89,16 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:layout_toRightOf="@+id/btnNueve"
     android:layout_toEndOf="@+id/btnNueve"
     android:background="@drawable/btn_nr"/>
+    <Button
+        android:id="@+id/btnRai"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:text="√"
+        android:textSize="28dp"
+        android:layout_below="@+id/etProceso"
+        android:layout_toRightOf="@+id/btnDiv"
+        android:layout_toEndOf="@+id/btnDiv"
+        android:background="@drawable/btn_nr"/>
 <!--**Fila 2***-->
 <Button
     android:id="@+id/btnCuatro"
@@ -291,6 +301,16 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_below="@+id/btnIgual"
         android:layout_toRightOf="@+id/btnMN"
         android:layout_toEndOf="@+id/btnMN"
+        android:background="@drawable/btn_rj"/>
+    <Button
+        android:id="@+id/btnLn"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:text="Ln"
+        android:textSize="28dp"
+        android:layout_below="@+id/btnSuma"
+        android:layout_toRightOf="@+id/btnMR"
+        android:layout_toEndOf="@+id/btnMR"
         android:background="@drawable/btn_rj"/>
     <!--****LIMPIAR-->
     <Button

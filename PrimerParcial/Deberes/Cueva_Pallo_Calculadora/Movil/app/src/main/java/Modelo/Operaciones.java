@@ -8,6 +8,7 @@
  **********************************************/
 package Modelo;
 import android.os.Build;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
@@ -292,5 +293,32 @@ public class Operaciones
         }
         return null;
     }
-
+    public Double operationsRai(Double num){
+        double x = 1.0;
+        try{
+            if (num<0){
+                throw new Exception("Error");
+            }else if(num==0)
+                return 0.00;
+            int k;
+            for(k = 1; k < 100; k++){
+                x = (x + num/x) / 2;
+            }
+        }catch (Exception e){
+            return null;
+        }
+            return x;
+    }
+    public Double operationsLn(Double x){
+            double resp = 0;
+            if(x<=0)
+                return null;
+            double num=(operationsPot(x,2))-1.00;
+            double dem=(operationsPot(x,2))+1.00;
+            for(int n = 0 ; n <4000 ; n++){
+                double a=1.00/((2*n)+1.00);
+                resp += a * operationsPot((num/dem),((2*n)+1));
+            }
+            return resp;
+    }
 }
