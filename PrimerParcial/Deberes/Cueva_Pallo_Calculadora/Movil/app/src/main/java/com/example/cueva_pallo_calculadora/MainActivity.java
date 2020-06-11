@@ -111,19 +111,37 @@ public class MainActivity extends AppCompatActivity
      */
     btnFac,
 
+    /**
+     * The Btn mod.
+     */
     btnMod,
 
+    /**
+     * The Btn rai.
+     */
     btnRai,
 
+    /**
+     * The Btn ln.
+     */
     btnLn,
 
+    /**
+     * The Btn mas menos.
+     */
     btnMasMenos,
 
     /**
      * The Btn pot.
      */
     btnPot,
+    /**
+     * The Btn sin.
+     */
     btnSin,
+    /**
+     * The Btn cos.
+     */
     btnCos;
     /**
      * The Et proceso.

@@ -93,7 +93,6 @@ public class Operaciones
      * @param numero2 the numero 2
      * @return the double
      */
-
     @RequiresApi(api = Build.VERSION_CODES.N)
     public Double realizarOperacion(Double numero2)
     {
@@ -279,6 +278,13 @@ public class Operaciones
         return null;
     }
 
+    /**
+     * Operations mod double.
+     *
+     * @param num1 the num 1
+     * @param num2 the num 2
+     * @return the double
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public Double operationsMod(Double num1, Double num2)
     {
@@ -293,6 +299,13 @@ public class Operaciones
         }
         return null;
     }
+
+    /**
+     * Operations rai double.
+     *
+     * @param num the num
+     * @return the double
+     */
     public Double operationsRai(Double num){
         double x = 1.0;
         try{
@@ -309,6 +322,13 @@ public class Operaciones
         }
             return x;
     }
+
+    /**
+     * Operations ln double.
+     *
+     * @param x the x
+     * @return the double
+     */
     public Double operationsLn(Double x){
             double resp = 0;
             if(x<=0)
@@ -322,6 +342,12 @@ public class Operaciones
             return resp;
     }
 
+    /**
+     * Operations sin double.
+     *
+     * @param ang the ang
+     * @return the double
+     */
     public Double operationsSin(Double ang)
     {
         double datTrans = gradosARad(ang);
@@ -337,6 +363,12 @@ public class Operaciones
         return redondear;
     }
 
+    /**
+     * Operations cos double.
+     *
+     * @param ang the ang
+     * @return the double
+     */
     public Double operationsCos(Double ang)
     {
         double datTrans = gradosARad(ang);
@@ -352,6 +384,12 @@ public class Operaciones
         return redondear;
     }
 
+    /**
+     * Grados a rad double.
+     *
+     * @param grad the grad
+     * @return the double
+     */
     public double gradosARad (double grad)
     {
         return (grad*Math.PI/180);
