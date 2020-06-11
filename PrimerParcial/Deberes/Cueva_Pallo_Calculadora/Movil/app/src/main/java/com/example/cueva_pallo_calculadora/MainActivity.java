@@ -122,7 +122,9 @@ public class MainActivity extends AppCompatActivity
     /**
      * The Btn pot.
      */
-    btnPot;
+    btnPot,
+    btnSin,
+    btnCos;
     /**
      * The Et proceso.
      */
@@ -167,6 +169,8 @@ public class MainActivity extends AppCompatActivity
         btnMod = (Button)findViewById(R.id.btnModulo);
         btnRai = (Button)findViewById(R.id.btnRai);
         btnLn = (Button)findViewById(R.id.btnLn);
+        btnSin = (Button)findViewById(R.id.btnSeno);
+        btnCos = (Button)findViewById(R.id.btnCose);
         btnMasMenos = (Button)findViewById(R.id.btnMenos);
         etProceso = (EditText)findViewById(R.id.etProceso);
         btnCero.setOnClickListener(new View.OnClickListener() {
@@ -454,6 +458,40 @@ public class MainActivity extends AppCompatActivity
                     etProceso.setText(""+rai);
                 }catch (Exception e){
                     Toast M1 = Toast.makeText(getApplicationContext(),"No existe el logaritmos!!", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+
+        btnSin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    Double sin=opera.operationsSin(Double.parseDouble(etConcatenar.getText().toString()));
+                    etProceso.setText(""+sin);
+                }
+                catch (Exception e)
+                {
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+
+        btnCos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    Double cos=opera.operationsCos(Double.parseDouble(etConcatenar.getText().toString()));
+                    etProceso.setText(""+cos);
+                }
+                catch (Exception e)
+                {
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
                     M1.show();
                 }
 

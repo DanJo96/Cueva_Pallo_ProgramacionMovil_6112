@@ -321,4 +321,39 @@ public class Operaciones
             }
             return resp;
     }
+
+    public Double operationsSin(Double ang)
+    {
+        double datTrans = gradosARad(ang);
+        double acum = 0;
+        int varSigno = 1;
+        for(int i=1; i<100; i+=2)
+        {
+            acum += varSigno*operationsPot(datTrans, i) / operationsFact(i);
+            varSigno *= -1;
+        }
+        String valRed = (String) String.format("%.2f", acum);
+        Double redondear = Double.parseDouble(valRed);
+        return redondear;
+    }
+
+    public Double operationsCos(Double ang)
+    {
+        double datTrans = gradosARad(ang);
+        double acum = 0;
+        int varSigno = 1;
+        for(int i=0; i<100; i+=2)
+        {
+            acum += varSigno*operationsPot(datTrans, i) / operationsFact(i);
+            varSigno *= -1;
+        }
+        String valRed = (String) String.format("%.2f", acum);
+        Double redondear = Double.parseDouble(valRed);
+        return redondear;
+    }
+
+    public double gradosARad (double grad)
+    {
+        return (grad*Math.PI/180);
+    }
 }
