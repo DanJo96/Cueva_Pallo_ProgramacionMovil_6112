@@ -117,6 +117,8 @@ public class MainActivity extends AppCompatActivity
 
     btnLn,
 
+    btnMasMenos,
+
     /**
      * The Btn pot.
      */
@@ -165,6 +167,7 @@ public class MainActivity extends AppCompatActivity
         btnMod = (Button)findViewById(R.id.btnModulo);
         btnRai = (Button)findViewById(R.id.btnRai);
         btnLn = (Button)findViewById(R.id.btnLn);
+        btnMasMenos = (Button)findViewById(R.id.btnMenos);
         etProceso = (EditText)findViewById(R.id.etProceso);
         btnCero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -242,6 +245,13 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 etConcatenar = (EditText)findViewById(R.id.etProceso);
                 etProceso.setText(etConcatenar.getText().toString() + ".");
+            }
+        });
+        btnMasMenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etConcatenar = (EditText)findViewById(R.id.etProceso);
+                etProceso.setText(etConcatenar.getText().toString() + "-");
             }
         });
 
