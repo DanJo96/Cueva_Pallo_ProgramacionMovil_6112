@@ -135,6 +135,13 @@ public class MainActivity extends AppCompatActivity
      * The Btn pot.
      */
     btnPot,
+
+
+    btnBin,
+
+    btnOct,
+
+    btnHex,
     /**
      * The Btn sin.
      */
@@ -190,6 +197,9 @@ public class MainActivity extends AppCompatActivity
         btnSin = (Button)findViewById(R.id.btnSeno);
         btnCos = (Button)findViewById(R.id.btnCose);
         btnMasMenos = (Button)findViewById(R.id.btnMenos);
+        btnBin = (Button)findViewById(R.id.btnBinario);
+        btnOct = (Button)findViewById(R.id.btnOctal);
+        btnHex = (Button)findViewById(R.id.btnHexa);
         etProceso = (EditText)findViewById(R.id.etProceso);
         btnCero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -506,6 +516,54 @@ public class MainActivity extends AppCompatActivity
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
                     Double cos=opera.operationsCos(Double.parseDouble(etConcatenar.getText().toString()));
                     etProceso.setText(""+cos);
+                }
+                catch (Exception e)
+                {
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnBin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    String bin=opera.operationsDecBin(Integer.parseInt(etConcatenar.getText().toString()));
+                    etProceso.setText(bin);
+                }
+                catch (Exception e)
+                {
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnOct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    String oct=opera.operationsDecOct(Integer.parseInt(etConcatenar.getText().toString()));
+                    etProceso.setText(oct);
+                }
+                catch (Exception e)
+                {
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
+                    M1.show();
+                }
+
+            }
+        });
+        btnHex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    etConcatenar = (EditText)findViewById(R.id.etProceso);
+                    String hex=opera.operationsDecHex(Integer.parseInt(etConcatenar.getText().toString()));
+                    etProceso.setText(hex);
                 }
                 catch (Exception e)
                 {

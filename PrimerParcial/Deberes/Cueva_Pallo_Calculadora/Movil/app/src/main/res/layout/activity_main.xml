@@ -307,6 +307,36 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:background="@drawable/btn_rj"
         android:text="COS"
         android:textSize="28dp" />
+    <Button
+        android:id="@+id/btnBinario"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:text="BIN"
+        android:textSize="28dp"
+        android:layout_below="@+id/btnMR"
+        android:layout_toRightOf="@+id/btnCose"
+        android:layout_toEndOf="@+id/btnCose"
+        android:background="@drawable/btn_rj"/>
+    <Button
+        android:id="@+id/btnOctal"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:text="OCT"
+        android:textSize="28dp"
+        android:layout_below="@+id/btnLn"
+        android:layout_toRightOf="@+id/btnBinario"
+        android:layout_toEndOf="@+id/btnBinario"
+        android:background="@drawable/btn_rj"/>
+    <Button
+        android:id="@+id/btnHexa"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:text="HEX"
+        android:textSize="28dp"
+        android:layout_below="@+id/btnMenos"
+        android:layout_toRightOf="@+id/btnOctal"
+        android:layout_toEndOf="@+id/btnOctal"
+        android:background="@drawable/btn_rj"/>
 
     <Button
         android:id="@+id/btnMN"

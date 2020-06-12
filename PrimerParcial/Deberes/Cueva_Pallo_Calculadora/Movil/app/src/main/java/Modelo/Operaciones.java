@@ -394,4 +394,40 @@ public class Operaciones
     {
         return (grad*Math.PI/180);
     }
+
+    public String operationsDecOct(int decimal){
+        char digitosO[]={'0','1','2','3','4','5','6','7'};
+        String octal2 = "";
+        int resto, aux = decimal;
+
+        while(aux>0){
+            resto = aux % 8;
+            octal2 = digitosO[resto] + octal2;
+            aux /= 8;
+        }
+        return octal2;
+    }
+
+    public String operationsDecBin(int decimal) {
+
+        StringBuilder binario = new StringBuilder();
+        while (decimal > 0) {
+            short residuo = (short) (decimal % 2);
+            decimal = decimal / 2;
+            // Insertar el dígito al inicio de la cadena
+            binario.insert(0, String.valueOf(residuo));
+        }
+        return binario.toString();
+    }
+
+    public String operationsDecHex(int decimal) {
+        String hexadecimal = "";
+        String caracteresHexadecimales = "0123456789ABCDEF";
+        while (decimal > 0) {
+            int residuo = decimal % 16;
+            hexadecimal = caracteresHexadecimales.charAt(residuo) + hexadecimal; // Agregar a la izquierda
+            decimal /= 16;
+        }
+        return hexadecimal;
+    }
 }
