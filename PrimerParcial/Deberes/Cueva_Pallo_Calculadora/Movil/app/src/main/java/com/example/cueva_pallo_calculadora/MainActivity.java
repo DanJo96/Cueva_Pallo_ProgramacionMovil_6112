@@ -450,6 +450,8 @@ public class MainActivity extends AppCompatActivity
             try{
                 etConcatenar = (EditText)findViewById(R.id.etProceso);
                 Double fact=opera.operationsFact(Double.parseDouble(etConcatenar.getText().toString()));
+                if(fact==null)
+                    throw new Exception();
                 etProceso.setText(""+fact);
 
             }catch (Exception e){
@@ -535,7 +537,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 catch (Exception e)
                 {
-                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Numero Invalido", Toast.LENGTH_LONG);
                     M1.show();
                 }
 
@@ -543,7 +545,8 @@ public class MainActivity extends AppCompatActivity
         });
         btnOct.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 try{
                     etConcatenar = (EditText)findViewById(R.id.etProceso);
                     String oct=opera.operationsDecOct(Integer.parseInt(etConcatenar.getText().toString()));
@@ -551,7 +554,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 catch (Exception e)
                 {
-                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Numero Invalido", Toast.LENGTH_LONG);
                     M1.show();
                 }
 
@@ -567,7 +570,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 catch (Exception e)
                 {
-                    Toast M1 = Toast.makeText(getApplicationContext(),"Angulo invalido", Toast.LENGTH_LONG);
+                    Toast M1 = Toast.makeText(getApplicationContext(),"Numero Invalido", Toast.LENGTH_LONG);
                     M1.show();
                 }
 

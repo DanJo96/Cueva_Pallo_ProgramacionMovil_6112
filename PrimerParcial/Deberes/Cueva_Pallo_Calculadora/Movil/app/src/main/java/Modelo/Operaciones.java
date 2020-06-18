@@ -240,6 +240,10 @@ public class Operaciones
         double acumulador = 1;
         try
         {
+            if (num1<0)
+            {
+                throw new Exception("Error");
+            }
             for(int i=2; i<=num1; i++)
             {
                 acumulador = acumulador * i;
@@ -247,7 +251,7 @@ public class Operaciones
         }
         catch (Exception e)
         {
-
+            return null;
         }
 
         return acumulador;
@@ -329,7 +333,8 @@ public class Operaciones
      * @param x the x
      * @return the double
      */
-    public Double operationsLn(Double x){
+    public Double operationsLn(Double x)
+    {
             double resp = 0;
             if(x<=0)
                 return null;
@@ -358,7 +363,7 @@ public class Operaciones
             acum += varSigno*operationsPot(datTrans, i) / operationsFact(i);
             varSigno *= -1;
         }
-        String valRed = (String) String.format("%.2f", acum);
+        String valRed = (String) String.format("%.8f", acum);
         Double redondear = Double.parseDouble(valRed);
         return redondear;
     }
@@ -379,7 +384,7 @@ public class Operaciones
             acum += varSigno*operationsPot(datTrans, i) / operationsFact(i);
             varSigno *= -1;
         }
-        String valRed = (String) String.format("%.2f", acum);
+        String valRed = (String) String.format("%.8f", acum);
         Double redondear = Double.parseDouble(valRed);
         return redondear;
     }
@@ -395,7 +400,9 @@ public class Operaciones
         return (grad*Math.PI/180);
     }
 
-    public String operationsDecOct(int decimal){
+    public String operationsDecOct(int decimal)
+    {
+
         char digitosO[]={'0','1','2','3','4','5','6','7'};
         String octal2 = "";
         int resto, aux = decimal;
@@ -408,7 +415,8 @@ public class Operaciones
         return octal2;
     }
 
-    public String operationsDecBin(int decimal) {
+    public String operationsDecBin(int decimal)
+    {
 
         StringBuilder binario = new StringBuilder();
         while (decimal > 0) {

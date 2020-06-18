@@ -21,7 +21,8 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class UnitTest {
+public class UnitTest
+{
     /**
      * Addition is correct.
      */
@@ -196,5 +197,96 @@ public class UnitTest {
         assertEquals(esperado, control, 0.0);
     }
 
+
+    /**
+     * PU14: Raiz.
+     */
+    @Test
+    public void raiz()
+    {
+        Operaciones PO14 = new Operaciones();
+        double control;
+        double esperado= 5;
+        control = PO14.operationsRai(25.0);
+        assertEquals(esperado, control, 0.0);
+    }
+
+    /**
+     * PU15: Logaritmo.
+     */
+    @Test
+    public void logaritmo()
+    {
+        Operaciones PO15 = new Operaciones();
+        double control;
+        double esperado= 3.2188758248680425;
+        control = PO15.operationsLn(25.0);
+        assertEquals(esperado, control, 0.0);
+    }
+
+    /**
+     * PU16: Seno.
+     */
+    @Test
+    public void seno()
+    {
+        Operaciones PO16 = new Operaciones();
+        double control;
+        double esperado= 0.5;
+        control = PO16.operationsSin(30.0);
+        assertEquals(esperado, control, 0.0);
+    }
+
+    /**
+     * PU17: Coseno.
+     */
+    @Test
+    public void coseno()
+    {
+        Operaciones PO17 = new Operaciones();
+        double control;
+        double esperado= 0.8660254;
+        control = PO17.operationsCos(30.0);
+        assertEquals(esperado, control, 0.0);
+    }
+
+    /**
+     * PU18: Binario.
+     */
+    @Test
+    public void binario()
+    {
+        Operaciones PO18 = new Operaciones();
+        String control;
+        String esperado= "1010";
+        control = PO18.operationsDecBin(10);
+        assertEquals(esperado, control);
+    }
+
+    /**
+     * PU19: Octal.
+     */
+    @Test
+    public void octal()
+    {
+        Operaciones PO19 = new Operaciones();
+        String control;
+        String esperado= "12";
+        control = PO19.operationsDecOct(10);
+        assertEquals(esperado, control);
+    }
+
+    /**
+     * PU20: Hexadecimal.
+     */
+    @Test
+    public void hexadecimal()
+    {
+        Operaciones PO20 = new Operaciones();
+        String control;
+        String esperado= "A";
+        control = PO20.operationsDecHex(10);
+        assertEquals(esperado, control);
+    }
 
 }
