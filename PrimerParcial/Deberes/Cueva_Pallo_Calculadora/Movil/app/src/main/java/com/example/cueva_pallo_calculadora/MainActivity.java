@@ -137,10 +137,19 @@ public class MainActivity extends AppCompatActivity
     btnPot,
 
 
+    /**
+     * The Btn bin.
+     */
     btnBin,
 
+    /**
+     * The Btn oct.
+     */
     btnOct,
 
+    /**
+     * The Btn hex.
+     */
     btnHex,
     /**
      * The Btn sin.

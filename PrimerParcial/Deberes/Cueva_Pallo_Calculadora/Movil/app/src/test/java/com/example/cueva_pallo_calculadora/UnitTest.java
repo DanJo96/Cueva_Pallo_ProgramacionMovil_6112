@@ -232,8 +232,9 @@ public class UnitTest
     {
         Operaciones PO16 = new Operaciones();
         double control;
-        double esperado= 0.5;
+        double esperado= 0.50;
         control = PO16.operationsSin(30.0);
+        System.out.println(control);
         assertEquals(esperado, control, 0.0);
     }
 
@@ -245,7 +246,7 @@ public class UnitTest
     {
         Operaciones PO17 = new Operaciones();
         double control;
-        double esperado= 0.8660254;
+        double esperado= 0.87;
         control = PO17.operationsCos(30.0);
         assertEquals(esperado, control, 0.0);
     }

@@ -363,7 +363,7 @@ public class Operaciones
             acum += varSigno*operationsPot(datTrans, i) / operationsFact(i);
             varSigno *= -1;
         }
-        String valRed = (String) String.format("%.8f", acum);
+        String valRed = (String) String.format("%.2f", acum);
         Double redondear = Double.parseDouble(valRed);
         return redondear;
     }
@@ -384,7 +384,7 @@ public class Operaciones
             acum += varSigno*operationsPot(datTrans, i) / operationsFact(i);
             varSigno *= -1;
         }
-        String valRed = (String) String.format("%.8f", acum);
+        String valRed = (String) String.format("%.2f", acum);
         Double redondear = Double.parseDouble(valRed);
         return redondear;
     }
@@ -400,6 +400,12 @@ public class Operaciones
         return (grad*Math.PI/180);
     }
 
+    /**
+     * Operations dec oct string.
+     *
+     * @param decimal the decimal
+     * @return the string
+     */
     public String operationsDecOct(int decimal)
     {
 
@@ -415,6 +421,12 @@ public class Operaciones
         return octal2;
     }
 
+    /**
+     * Operations dec bin string.
+     *
+     * @param decimal the decimal
+     * @return the string
+     */
     public String operationsDecBin(int decimal)
     {
 
@@ -428,6 +440,12 @@ public class Operaciones
         return binario.toString();
     }
 
+    /**
+     * Operations dec hex string.
+     *
+     * @param decimal the decimal
+     * @return the string
+     */
     public String operationsDecHex(int decimal) {
         String hexadecimal = "";
         String caracteresHexadecimales = "0123456789ABCDEF";
