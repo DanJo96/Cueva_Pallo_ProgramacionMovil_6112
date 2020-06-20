@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<*******************************************
- *  Programa: Calculadora Básica               *
- *	Autores: Cueva - Pallo					   *
- *	Fecha Creación: 26/05/2020				   *
- *	Fecha Modificación:  05/06/2020		       *
- *	Carrera: Sistemas e Informatica			   *
- *	Profesor: Ing Fernando Solis			   *
- **********************************************>-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cueva_pallo_calculadora">
 
@@ -17,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".GraficarActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

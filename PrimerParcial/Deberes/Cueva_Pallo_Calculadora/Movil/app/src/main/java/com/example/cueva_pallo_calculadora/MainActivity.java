@@ -12,6 +12,7 @@ package com.example.cueva_pallo_calculadora;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -155,6 +156,8 @@ public class MainActivity extends AppCompatActivity
      * The Btn sin.
      */
     btnSin,
+            btnGrafSin,
+            btnGrafcos,
     /**
      * The Btn cos.
      */
@@ -209,6 +212,8 @@ public class MainActivity extends AppCompatActivity
         btnBin = (Button)findViewById(R.id.btnBinario);
         btnOct = (Button)findViewById(R.id.btnOctal);
         btnHex = (Button)findViewById(R.id.btnHexa);
+        btnGrafSin = (Button)findViewById(R.id.btnGrfSin);
+        btnGrafcos = (Button)findViewById(R.id.btnGrfCos);
         etProceso = (EditText)findViewById(R.id.etProceso);
         btnCero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -581,6 +586,40 @@ public class MainActivity extends AppCompatActivity
                 {
                     Toast M1 = Toast.makeText(getApplicationContext(),"Numero Invalido", Toast.LENGTH_LONG);
                     M1.show();
+                }
+
+            }
+        });
+        btnGrafSin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent=new Intent(MainActivity.this,GraficarActivity.class);
+                    String valor="sin";
+                    intent.putExtra("key1",valor);
+                    startActivity(intent);
+
+                }
+                catch (Exception e)
+                {
+
+                }
+
+            }
+        });
+        btnGrafcos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent=new Intent(MainActivity.this,GraficarActivity.class);
+                    String valor="cos";
+                    intent.putExtra("key1",valor);
+                    startActivity(intent);
+
+                }
+                catch (Exception e)
+                {
+
                 }
 
             }

@@ -328,14 +328,35 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_toEndOf="@+id/btnBinario"
         android:background="@drawable/btn_rj"/>
     <Button
-        android:id="@+id/btnHexa"
+    android:id="@+id/btnHexa"
+    android:layout_width="55dp"
+    android:layout_height="60dp"
+    android:text="HEX"
+    android:textSize="20dp"
+    android:layout_below="@+id/btnMenos"
+    android:layout_toRightOf="@+id/btnOctal"
+    android:layout_toEndOf="@+id/btnOctal"
+    android:background="@drawable/btn_rj"/>
+
+    <Button
+        android:id="@+id/btnGrfSin"
         android:layout_width="55dp"
         android:layout_height="60dp"
-        android:text="HEX"
+        android:text="GSIN"
         android:textSize="20dp"
-        android:layout_below="@+id/btnMenos"
-        android:layout_toRightOf="@+id/btnOctal"
-        android:layout_toEndOf="@+id/btnOctal"
+        android:layout_below="@+id/btnFact"
+        android:layout_toRightOf="@+id/btnMenos"
+        android:layout_toEndOf="@+id/btnMenos"
+        android:background="@drawable/btn_rj"/>
+    <Button
+        android:id="@+id/btnGrfCos"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:text="GCOS"
+        android:textSize="20dp"
+        android:layout_below="@+id/btnGrfSin"
+        android:layout_toRightOf="@+id/btnHexa"
+        android:layout_toEndOf="@+id/btnHexa"
         android:background="@drawable/btn_rj"/>
 
     <Button
