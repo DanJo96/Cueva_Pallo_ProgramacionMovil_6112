@@ -156,8 +156,10 @@ public class MainActivity extends AppCompatActivity
      * The Btn sin.
      */
     btnSin,
-            btnGrafSin,
-            btnGrafcos,
+
+    btnGrafSin,
+
+    btnGrafcos,
     /**
      * The Btn cos.
      */
@@ -607,15 +609,16 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        btnGrafcos.setOnClickListener(new View.OnClickListener() {
+        btnGrafcos.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 try{
                     Intent intent=new Intent(MainActivity.this,GraficarActivity.class);
                     String valor="cos";
                     intent.putExtra("key1",valor);
                     startActivity(intent);
-
                 }
                 catch (Exception e)
                 {

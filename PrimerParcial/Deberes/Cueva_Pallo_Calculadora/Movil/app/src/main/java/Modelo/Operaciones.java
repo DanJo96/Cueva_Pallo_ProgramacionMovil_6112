@@ -12,6 +12,11 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.cueva_pallo_calculadora.R;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import java.math.*;
 
 /**
@@ -446,7 +451,8 @@ public class Operaciones
      * @param decimal the decimal
      * @return the string
      */
-    public String operationsDecHex(int decimal) {
+    public String operationsDecHex(int decimal)
+    {
         String hexadecimal = "";
         String caracteresHexadecimales = "0123456789ABCDEF";
         while (decimal > 0) {
@@ -455,5 +461,32 @@ public class Operaciones
             decimal /= 16;
         }
         return hexadecimal;
+    }
+
+    public GraphView dibujarSin(String recuperado, GraphView function)
+    {
+        LineGraphSeries<DataPoint> series;
+        double x,y;
+        x=-200;
+        series=new LineGraphSeries<DataPoint>();
+
+
+        for(int i=0;i<7000;i++)
+        {
+            x+=0.15;
+            if(recuperado.equals("sin"))
+            {
+                y = operationsSin(x);
+            }else if(recuperado.equals("cos"))
+            {
+                y = operationsCos(x);
+            }
+            else{
+                break;
+            }
+            series.appendData(new DataPoint(x,y),true,7000);
+        }
+        function.addSeries(series);
+        return function;
     }
 }
