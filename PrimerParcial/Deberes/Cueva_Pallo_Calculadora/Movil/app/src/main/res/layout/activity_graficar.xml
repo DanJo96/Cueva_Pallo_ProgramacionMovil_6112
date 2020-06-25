@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<*******************************************
+ *  Programa: Calculadora Básica               *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  05/06/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************>-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
