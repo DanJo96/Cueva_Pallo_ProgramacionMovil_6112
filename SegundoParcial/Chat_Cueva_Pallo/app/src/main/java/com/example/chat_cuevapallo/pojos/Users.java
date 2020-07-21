@@ -1,6 +1,7 @@
 package com.example.chat_cuevapallo.pojos;
 
-public class Users {
+public class Users
+{
     private String id;
     private String nombre;
     private String mail;

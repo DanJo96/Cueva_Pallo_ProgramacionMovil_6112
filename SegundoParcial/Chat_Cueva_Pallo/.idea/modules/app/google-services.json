@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "667520812114",
+    "firebase_url": "https://chatcuevapallo.firebaseio.com",
+    "project_id": "chatcuevapallo",
+    "storage_bucket": "chatcuevapallo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667520812114:android:b0ef039bbd50ffbfe10b8b",
+        "android_client_info": {
+          "package_name": "com.example.chat_cuevapallo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667520812114-t5rcci9ksianm1nhpbudg901b6famscp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chat_cuevapallo",
+            "certificate_hash": "c750eebb62288f2927e8c3f3753d17a889f4d5cf"
+          }
+        },
+        {
+          "client_id": "667520812114-ac11bt0lce9hniqbu9c1v4tpik2bdob5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBBKdIphp4r_Xe4v8tF6zbCpt8trGhBbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667520812114-ac11bt0lce9hniqbu9c1v4tpik2bdob5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

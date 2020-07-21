@@ -1,0 +1,67 @@
+{
+  "Chats" : {
+    "-MCjf8mq8B-j9s4CeoEx" : {
+      "-MCjtBceLno1DpKAj5lg" : {
+        "envia" : "5g7bgzQCYjY9EcsbpwaelhljDJA2",
+        "mensaje" : "Hola",
+        "recibe" : "afNR0YxgYCPoMwRbPv5tD0kPLl33",
+        "visto" : "no"
+      }
+    }
+  },
+  "Contador" : {
+    "5g7bgzQCYjY9EcsbpwaelhljDJA2" : 0
+  },
+  "Estado" : {
+    "5g7bgzQCYjY9EcsbpwaelhljDJA2" : {
+      "chatcon" : "",
+      "estado" : "conectado",
+      "fecha" : "",
+      "hora" : ""
+    },
+    "afNR0YxgYCPoMwRbPv5tD0kPLl33" : {
+      "chatcon" : "",
+      "estado" : "conectado",
+      "fecha" : "",
+      "hora" : ""
+    }
+  },
+  "Solicitudes" : {
+    "5g7bgzQCYjY9EcsbpwaelhljDJA2" : {
+      "afNR0YxgYCPoMwRbPv5tD0kPLl33" : {
+        "estado" : "amigos",
+        "idchat" : "-MCjf8mq8B-j9s4CeoEx"
+      }
+    },
+    "afNR0YxgYCPoMwRbPv5tD0kPLl33" : {
+      "5g7bgzQCYjY9EcsbpwaelhljDJA2" : {
+        "estado" : "amigos",
+        "idchat" : "-MCjf8mq8B-j9s4CeoEx"
+      }
+    }
+  },
+  "Users" : {
+    "5g7bgzQCYjY9EcsbpwaelhljDJA2" : {
+      "estado" : "desconectado",
+      "fecha" : "28/04/2020",
+      "foto" : "https://lh5.googleusercontent.com/-F4sok8qqOgA/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnq5Wpp6RRC2jOrVaraeE5PI50qxg/s96-c/photo.jpg",
+      "hora" : "12:18",
+      "id" : "5g7bgzQCYjY9EcsbpwaelhljDJA2",
+      "mail" : "rdanjo267@gmail.com",
+      "nombre" : "DanJo Reyes",
+      "nuevomensaje" : 0,
+      "solicitudes" : 0
+    },
+    "afNR0YxgYCPoMwRbPv5tD0kPLl33" : {
+      "estado" : "desconectado",
+      "fecha" : "28/04/2020",
+      "foto" : "https://lh3.googleusercontent.com/-axrcLL3XRuk/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnKB_Qn21hTovUufco7WO80KzM74A/s96-c/photo.jpg",
+      "hora" : "12:18",
+      "id" : "afNR0YxgYCPoMwRbPv5tD0kPLl33",
+      "mail" : "otislol1995@gmail.com",
+      "nombre" : "Otis Cuenca",
+      "nuevomensaje" : 0,
+      "solicitudes" : 0
+    }
+  }
+}
