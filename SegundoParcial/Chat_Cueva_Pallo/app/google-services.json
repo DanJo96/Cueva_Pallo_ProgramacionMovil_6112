@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "667520812114-jaca6r6t6q7pa1ogi8ebmer7d94eijk7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chat_cuevapallo",
+            "certificate_hash": "396a7e72d8ef86edddf523266b2fbcf250139760"
+          }
+        },
+        {
           "client_id": "667520812114-t5rcci9ksianm1nhpbudg901b6famscp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
