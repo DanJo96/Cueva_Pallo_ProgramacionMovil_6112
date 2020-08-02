@@ -55,12 +55,12 @@ public class homeActivity extends AppCompatActivity {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 switch (position){
                     case 0:{
-                        tab.setText("Users");
+                        tab.setText("         Users       ");
                         tab.setIcon(R.drawable.ic_usuarios);
                         break;
                     }
                     case 1:{
-                        tab.setText("Chats");
+                        tab.setText("       Chats     ");
                         tab.setIcon(R.drawable.ic_chats);
                         break;
                     }
@@ -94,11 +94,7 @@ public class homeActivity extends AppCompatActivity {
                         });
                         break;
                     }
-                    case 3:{
-                        tab.setText("Mis Solicitudes");
-                        tab.setIcon(R.drawable.ic_mis_solicitudes);
-                        break;
-                    }
+
 
                 }
             }

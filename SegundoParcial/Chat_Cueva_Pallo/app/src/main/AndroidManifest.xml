@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MensajesActivity" android:parentActivityName=".homeActivity"></activity>
+        <activity android:name=".MensajesActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" android:parentActivityName=".homeActivity"></activity>
         <activity android:name=".homeActivity" />
         <activity
             android:name=".MainActivity"

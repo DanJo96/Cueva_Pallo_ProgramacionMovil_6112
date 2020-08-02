@@ -3,6 +3,8 @@ package com.example.chat_cuevapallo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,8 +17,11 @@ import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
+import com.example.chat_cuevapallo.adapters.AdapterChatLista;
+import com.example.chat_cuevapallo.adapters.AdapterMensajeLista;
 import com.example.chat_cuevapallo.pojos.Chats;
 import com.example.chat_cuevapallo.pojos.Estado;
+import com.example.chat_cuevapallo.pojos.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +31,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -35,6 +42,8 @@ public class MensajesActivity extends AppCompatActivity {
     TextView username;
     ImageView ic_conectado,ic_desconectado;
     SharedPreferences mPref;
+    RecyclerView recyclerViewMensajes;
+    AdapterMensajeLista adapterMensajeLista;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -49,6 +58,7 @@ public class MensajesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_mensajes);
         Toolbar toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -63,6 +73,43 @@ public class MensajesActivity extends AppCompatActivity {
         String foto = getIntent().getExtras().getString("img_user");
         final String id_user = getIntent().getExtras().getString("id_user");
         final String id_unico = getIntent().getExtras().getString("id_unico");
+
+        recyclerViewMensajes=findViewById(R.id.rvMensajes);
+        recyclerViewMensajes.setLayoutManager(new LinearLayoutManager(this));
+
+        final List<Chats> chats=new ArrayList<>();
+        adapterMensajeLista = new AdapterMensajeLista(chats,this);
+        recyclerViewMensajes.setAdapter(adapterMensajeLista);
+        FirebaseDatabase database= FirebaseDatabase.getInstance();
+        DatabaseReference myref= database.getReference("Chats").child(id_unico);
+        myref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+
+                    recyclerViewMensajes.setVisibility(View.VISIBLE);
+                    System.out.println("AAAAAAAAAAAAquiiiii!!!!!!!!!!!!!!!!!!!!!");
+                    chats.removeAll(chats);
+                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                        Chats chat= snapshot.getValue(Chats.class);
+                        chats.add(chat);
+                        System.out.println(chats.size());
+                    }
+                    adapterMensajeLista.notifyDataSetChanged();
+                }else {
+
+                    Toast.makeText(getApplicationContext() , "No existen mensajes", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
         et_mensaje_txt=findViewById(R.id.txt_mensaje);
         btn_enviar_msj=findViewById(R.id.btn_enviar_mensaje);
         btn_enviar_msj.setOnClickListener(new View.OnClickListener() {
@@ -149,5 +196,10 @@ public class MensajesActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public List<Chats> obtenerChats(){
+        List<Chats> chats=new ArrayList<>();
+        chats.add(new Chats());
+        return chats;
     }
 }

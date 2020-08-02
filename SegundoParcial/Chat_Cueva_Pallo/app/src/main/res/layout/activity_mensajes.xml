@@ -60,13 +60,16 @@
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/appBar"
-        android:id="@+id/rv"
+        android:id="@+id/rvMensajes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBar"
+        android:layout_marginTop="0dp">
 
     </androidx.recyclerview.widget.RecyclerView>
+
     <RelativeLayout
         android:layout_alignParentBottom="true"
         android:padding="5dp"
