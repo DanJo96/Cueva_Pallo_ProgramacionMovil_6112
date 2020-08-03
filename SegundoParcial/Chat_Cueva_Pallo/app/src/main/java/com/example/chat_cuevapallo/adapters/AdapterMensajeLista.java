@@ -3,6 +3,7 @@ package com.example.chat_cuevapallo.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -57,14 +59,18 @@ public class AdapterMensajeLista extends RecyclerView.Adapter<AdapterMensajeList
 
     @Override
     public void onBindViewHolder(@NonNull final viewHolderAdaptermensajelist holder, int position) {
-
         final Chats chat= chatsList.get(position);
         final Vibrator vibrator=(Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
-        holder.tv_usuario.setText(chat.getMensaje());
-        System.out.println(chat.getMensaje());
+        if(chat.getVisto().equals("no")) {
+            holder.tv_usuario.setVisibility(View.VISIBLE);
+            holder.mensajeFoto.setVisibility(View.GONE);
+            holder.tv_usuario.setText(chat.getMensaje());
+        }else if(chat.getVisto().equals("si")){
+            holder.tv_usuario.setVisibility(View.GONE);
+            holder.mensajeFoto.setVisibility(View.VISIBLE);
+            Glide.with(context).load(chat.getMensaje()).into(holder.mensajeFoto);
+        }
         final Users[] userss = {new Users()};
-        //Glide.with(context).load(userss.getFoto()).into(holder.img_user);
-
         DatabaseReference ref_mis_solicitudes= database.getReference("Users").child(chat.getEnvia());
         ref_mis_solicitudes.addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,7 +79,15 @@ public class AdapterMensajeLista extends RecyclerView.Adapter<AdapterMensajeList
                 if (dataSnapshot.exists()){
                     userss[0] =dataSnapshot.getValue(Users.class);
                     Glide.with(context).load(userss[0].getFoto()).into(holder.img_user);
-                    System.out.println(userss[0].getFoto());
+                    if(user.getUid().equals(userss[0].getId())){
+                        System.out.println("isklhgjj");
+                        holder.cardView.getBackground().setTint(Color.CYAN);
+                        holder.tv_usuario.setTextColor(Color.BLACK);
+                    }
+                    else{
+                        holder.cardView.getBackground().setTint(ContextCompat.getColor(context,R.color.colorNaranja));
+                        holder.tv_usuario.setTextColor(Color.WHITE);
+                    }
                 }else {
 
                 }
@@ -96,12 +110,13 @@ public class AdapterMensajeLista extends RecyclerView.Adapter<AdapterMensajeList
         TextView tv_usuario;
         ImageView img_user;
         CardView cardView;
+        ImageView mensajeFoto;
         public viewHolderAdaptermensajelist(@NonNull View itemView) {
             super(itemView);
             tv_usuario=itemView.findViewById(R.id.tv_user);
             img_user=itemView.findViewById(R.id.img_user);
             cardView=itemView.findViewById(R.id.cardViewMe);
-
+            mensajeFoto=itemView.findViewById(R.id.img_vista);
         }
     }
 }

@@ -1,12 +1,15 @@
 package com.example.chat_cuevapallo;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,6 +25,8 @@ import com.example.chat_cuevapallo.adapters.AdapterMensajeLista;
 import com.example.chat_cuevapallo.pojos.Chats;
 import com.example.chat_cuevapallo.pojos.Estado;
 import com.example.chat_cuevapallo.pojos.Users;
+import com.google.android.gms.auth.api.signin.internal.Storage;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +34,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,9 +57,14 @@ public class MensajesActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref_estado = database.getReference("Estado").child(user.getUid());
     DatabaseReference ref_chat = database.getReference("Chats");
+    FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
+    StorageReference storageReference;
+    String userID;
+    String unicoID;
+
 
     EditText et_mensaje_txt;
-    ImageButton btn_enviar_msj;
+    ImageButton btn_enviar_msj,btn_enviar_foto;
 
 
 
@@ -73,6 +86,8 @@ public class MensajesActivity extends AppCompatActivity {
         String foto = getIntent().getExtras().getString("img_user");
         final String id_user = getIntent().getExtras().getString("id_user");
         final String id_unico = getIntent().getExtras().getString("id_unico");
+        unicoID=id_unico;
+        userID=id_user;
 
         recyclerViewMensajes=findViewById(R.id.rvMensajes);
         recyclerViewMensajes.setLayoutManager(new LinearLayoutManager(this));
@@ -123,6 +138,19 @@ public class MensajesActivity extends AppCompatActivity {
 
             }
         });
+        btn_enviar_foto=findViewById(R.id.btn_enviar_foto);
+        btn_enviar_foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(Intent.ACTION_GET_CONTENT);
+                i.setType("image/jpeg");
+                i.putExtra(Intent.EXTRA_LOCAL_ONLY,true);
+                startActivityForResult(Intent.createChooser(i,"Selecciona una imagen"),1);
+
+
+            }
+        });
+
 
         final String id_user_sp=mPref.getString("usuario_sp","");
         username.setText(usuario);
@@ -201,5 +229,38 @@ public class MensajesActivity extends AppCompatActivity {
         List<Chats> chats=new ArrayList<>();
         chats.add(new Chats());
         return chats;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+
+            if (requestCode == 1 && resultCode == RESULT_OK) {
+                Uri u = data.getData();
+
+                storageReference = firebaseStorage.getReference("imagenesChat");
+
+                final StorageReference fotoReference = storageReference.child(u.getLastPathSegment());
+                // storageReference.child("image "+u.getLastPathSegment());
+                fotoReference.putFile(u).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        fotoReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Chats chatmsj = new Chats(user.getUid(),userID,uri.toString(),"si");
+                                ref_chat.child(unicoID).push().setValue(chatmsj);
+                                /*mensajito msj = new mensajito(nombre1.getText().toString(), "Josue ha enviado una foto", uri.toString(), "2", "", "00:00");
+                                databaseReference.push().setValue(msj);*/
+                            }
+                        });
+                    }
+                });
+            }
+        }catch (Exception e){
+            Toast.makeText(this, "Error " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

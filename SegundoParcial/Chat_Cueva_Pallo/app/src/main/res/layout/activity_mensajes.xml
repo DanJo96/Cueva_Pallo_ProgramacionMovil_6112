@@ -66,11 +66,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/appBar"
+        android:layout_above="@+id/cajaMensaje"
         android:layout_marginTop="0dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <RelativeLayout
+        android:id="@+id/cajaMensaje"
         android:layout_alignParentBottom="true"
         android:padding="5dp"
         android:background="@color/colorWhite"
@@ -89,6 +91,15 @@
             android:id="@+id/btn_enviar_mensaje"
             android:background="@drawable/ic_boton_enviar"
             android:layout_alignParentEnd="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+
+        </ImageButton>
+        <ImageButton
+
+            android:id="@+id/btn_enviar_foto"
+            android:background="@drawable/ic_galeria"
+            android:layout_toLeftOf="@+id/btn_enviar_mensaje"
             android:layout_width="40dp"
             android:layout_height="40dp">
 
