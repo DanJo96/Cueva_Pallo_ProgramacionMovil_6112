@@ -1,3 +1,11 @@
+/***********************************************
+ *  Programa: Calculadora Básica               *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  05/05/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************/
 package com.example.chat_cuevapallo.Adapters;
 
 import android.content.Context;

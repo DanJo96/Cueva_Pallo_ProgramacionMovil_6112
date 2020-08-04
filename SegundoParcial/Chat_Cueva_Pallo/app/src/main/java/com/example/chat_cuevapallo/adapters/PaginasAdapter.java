@@ -1,5 +1,12 @@
 package com.example.chat_cuevapallo.Adapters;
-
+/***********************************************
+ *  Programa: Calculadora Básica               *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  05/05/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************/
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
