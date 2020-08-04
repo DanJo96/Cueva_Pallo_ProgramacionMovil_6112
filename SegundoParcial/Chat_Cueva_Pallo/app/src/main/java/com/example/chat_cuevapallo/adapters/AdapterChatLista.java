@@ -1,4 +1,4 @@
-package com.example.chat_cuevapallo.adapters;
+package com.example.chat_cuevapallo.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,11 +7,8 @@ import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -20,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.chat_cuevapallo.MensajesActivity;
 import com.example.chat_cuevapallo.R;
-import com.example.chat_cuevapallo.pojos.Users;
+import com.example.chat_cuevapallo.Modelo.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,18 +26,43 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+/**
+ * The type Adapter chat lista.
+ */
 public class AdapterChatLista extends RecyclerView.Adapter<AdapterChatLista.viewHolderAdapterchatlist> {
+    /**
+     * The Users list.
+     */
     List<Users> usersList;
+    /**
+     * The Context.
+     */
     Context context;
+    /**
+     * The User.
+     */
     FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+    /**
+     * The Database.
+     */
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    /**
+     * The M pref.
+     */
     SharedPreferences mPref;
 
 
+    /**
+     * Instantiates a new Adapter chat lista.
+     *
+     * @param usersList the users list
+     * @param context   the context
+     */
     public AdapterChatLista(List<Users> usersList, Context context) {
         this.usersList = usersList;
         this.context = context;
@@ -56,103 +78,100 @@ public class AdapterChatLista extends RecyclerView.Adapter<AdapterChatLista.view
 
     @Override
     public void onBindViewHolder(@NonNull final viewHolderAdapterchatlist holder, int position) {
-        final Users userss= usersList.get(position);
-        final Vibrator vibrator=(Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
-        holder.tv_usuario.setText(userss.getNombre());
-        Glide.with(context).load(userss.getFoto()).into(holder.img_user);
-
-        DatabaseReference ref_mis_solicitudes= database.getReference("Solicitudes").child(user.getUid());
-        ref_mis_solicitudes.child(userss.getId()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String estado = dataSnapshot.child("estado").getValue(String.class);
-                if (dataSnapshot.exists()){
-                    if(estado.equals("amigos")){
-                        holder.cardView.setVisibility(View.VISIBLE);
-                    }else {
+        try {
+            final Users userss = usersList.get(position);
+            final Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            holder.tv_usuario.setText(userss.getNombre());
+            Glide.with(context).load(userss.getFoto()).into(holder.img_user);
+            DatabaseReference ref_mis_solicitudes = database.getReference("Solicitudes").child(user.getUid());
+            ref_mis_solicitudes.child(userss.getId()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String estado = dataSnapshot.child("estado").getValue(String.class);
+                    if (dataSnapshot.exists()) {
+                        if (estado.equals("amigos")) {
+                            holder.cardView.setVisibility(View.VISIBLE);
+                        } else {
+                            holder.cardView.setVisibility(View.GONE);
+                        }
+                    } else {
                         holder.cardView.setVisibility(View.GONE);
                     }
-                }else {
-                    holder.cardView.setVisibility(View.GONE);
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        final Calendar c = Calendar.getInstance();
-
-        final SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
-        DatabaseReference ref_estado=database.getReference("Estado").child(userss.getId());
-        ref_estado.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String estado=dataSnapshot.child("estado").getValue(String.class);
-                String fecha=dataSnapshot.child("fecha").getValue(String.class);
-                String hora=dataSnapshot.child("hora").getValue(String.class);
-
-                if(dataSnapshot.exists()){
-                    if(estado.equals("conectado")){
-                        holder.tv_conectado.setVisibility(View.VISIBLE);
-                        holder.icon_conectado.setVisibility(View.VISIBLE);
-                        holder.tv_desconectado.setVisibility(View.GONE);
-                        holder.icon_desconectado.setVisibility(View.GONE);
-                    }else{
-                        holder.tv_conectado.setVisibility(View.GONE);
-                        holder.icon_conectado.setVisibility(View.GONE);
-                        holder.tv_desconectado.setVisibility(View.VISIBLE);
-                        holder.icon_desconectado.setVisibility(View.VISIBLE);
-
-                        if(fecha.equals(dateFormat.format(c.getTime()))){
-                            holder.tv_desconectado.setText("últ. vez hoy a las "+hora);
-                        }else {
-                            holder.tv_desconectado.setText("últ. vez "+fecha+" a las "+hora);
-                        }
-                    }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                mPref=v.getContext().getSharedPreferences("usuario_sp",Context.MODE_PRIVATE);
-                final SharedPreferences.Editor editor= mPref.edit();
-                final DatabaseReference ref = database.getReference("Solicitudes").child(user.getUid()).child(userss.getId()).child("idchat");
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String id_unico=dataSnapshot.getValue(String.class);
-                        if(dataSnapshot.exists()){
-                            Intent intent = new Intent(v.getContext(), MensajesActivity.class);
-                            intent.putExtra("nombre",userss.getNombre());
-                            intent.putExtra("img_user",userss.getFoto());
-                            intent.putExtra("id_user",userss.getId());
-                            intent.putExtra("id_unico",id_unico);
-                            editor.putString("usuario_sp",userss.getId());
-                            editor.apply();
-
-                            v.getContext().startActivity(intent);
+            });
+            final Calendar c = Calendar.getInstance();
+            final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            DatabaseReference ref_estado = database.getReference("Estado").child(userss.getId());
+            ref_estado.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String estado = dataSnapshot.child("estado").getValue(String.class);
+                    String fecha = dataSnapshot.child("fecha").getValue(String.class);
+                    String hora = dataSnapshot.child("hora").getValue(String.class);
+                    if (dataSnapshot.exists()) {
+                        if (estado.equals("conectado")) {
+                            holder.tv_conectado.setVisibility(View.VISIBLE);
+                            holder.icon_conectado.setVisibility(View.VISIBLE);
+                            holder.tv_desconectado.setVisibility(View.GONE);
+                            holder.icon_desconectado.setVisibility(View.GONE);
+                        } else {
+                            holder.tv_conectado.setVisibility(View.GONE);
+                            holder.icon_conectado.setVisibility(View.GONE);
+                            holder.tv_desconectado.setVisibility(View.VISIBLE);
+                            holder.icon_desconectado.setVisibility(View.VISIBLE);
+                            if (fecha.equals(dateFormat.format(c.getTime()))) {
+                                holder.tv_desconectado.setText("últ. vez hoy a las " + hora);
+                            } else {
+                                holder.tv_desconectado.setText("últ. vez " + fecha + " a las " + hora);
+                            }
                         }
                     }
+                }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View v) {
+                    try {
+                        mPref = v.getContext().getSharedPreferences("usuario_sp", Context.MODE_PRIVATE);
+                        final SharedPreferences.Editor editor = mPref.edit();
+                        final DatabaseReference ref = database.getReference("Solicitudes").child(user.getUid()).child(userss.getId()).child("idchat");
+                        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                String id_unico = dataSnapshot.getValue(String.class);
+                                if (dataSnapshot.exists()) {
+                                    Intent intent = new Intent(v.getContext(), MensajesActivity.class);
+                                    intent.putExtra("nombre", userss.getNombre());
+                                    intent.putExtra("img_user", userss.getFoto());
+                                    intent.putExtra("id_user", userss.getId());
+                                    intent.putExtra("id_unico", id_unico);
+                                    editor.putString("usuario_sp", userss.getId());
+                                    editor.apply();
+                                    v.getContext().startActivity(intent);
+                                }
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                            }
+                        });
+                    } catch (Exception e) {
+                        System.out.println("Error en: " + e);
                     }
-                });
-
-            }
-        });
-
+                }
+            });
+        }catch (Exception e){
+            System.out.println("Error en: " + e);
+        }
     }
 
     @Override
@@ -160,23 +179,51 @@ public class AdapterChatLista extends RecyclerView.Adapter<AdapterChatLista.view
         return usersList.size();
     }
 
+    /**
+     * The type View holder adapterchatlist.
+     */
     public class viewHolderAdapterchatlist extends RecyclerView.ViewHolder {
+        /**
+         * The Tv usuario.
+         */
         TextView tv_usuario;
+        /**
+         * The Img user.
+         */
         ImageView img_user;
+        /**
+         * The Card view.
+         */
         CardView cardView;
-        TextView tv_conectado,tv_desconectado;
-        ImageView icon_conectado, icon_desconectado;
+        /**
+         * The Tv conectado.
+         */
+        TextView tv_conectado, /**
+         * The Tv desconectado.
+         */
+        tv_desconectado;
+        /**
+         * The Icon conectado.
+         */
+        ImageView icon_conectado, /**
+         * The Icon desconectado.
+         */
+        icon_desconectado;
 
-
+        /**
+         * Instantiates a new View holder adapterchatlist.
+         *
+         * @param itemView the item view
+         */
         public viewHolderAdapterchatlist(@NonNull View itemView) {
             super(itemView);
-            tv_usuario=itemView.findViewById(R.id.tv_user);
-            img_user=itemView.findViewById(R.id.img_user);
-            cardView=itemView.findViewById(R.id.cardView);
-            tv_desconectado=itemView.findViewById(R.id.tv_descoectado);
-            tv_conectado=itemView.findViewById(R.id.tv_coectado);
-            icon_conectado=itemView.findViewById(R.id.icon_conectado);
-            icon_desconectado=itemView.findViewById(R.id.icon_desconectado);
+            tv_usuario = itemView.findViewById(R.id.tv_user);
+            img_user = itemView.findViewById(R.id.img_user);
+            cardView = itemView.findViewById(R.id.cardView);
+            tv_desconectado = itemView.findViewById(R.id.tv_descoectado);
+            tv_conectado = itemView.findViewById(R.id.tv_coectado);
+            icon_conectado = itemView.findViewById(R.id.icon_conectado);
+            icon_desconectado = itemView.findViewById(R.id.icon_desconectado);
         }
     }
 }

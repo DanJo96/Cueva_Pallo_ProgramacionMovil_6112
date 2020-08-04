@@ -1,4 +1,4 @@
-package com.example.chat_cuevapallo.fragments;
+package com.example.chat_cuevapallo.Fragments;
 
 import android.os.Bundle;
 
@@ -10,16 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.chat_cuevapallo.R;
-import com.example.chat_cuevapallo.adapters.AdapterChatLista;
-import com.example.chat_cuevapallo.adapters.AdapterUsuarios;
-import com.example.chat_cuevapallo.pojos.Users;
+import com.example.chat_cuevapallo.Adapters.AdapterChatLista;
+import com.example.chat_cuevapallo.Modelo.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,6 +42,9 @@ public class chatsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    /**
+     * Instantiates a new Chats fragment.
+     */
     public chatsFragment() {
         // Required empty public constructor
     }
@@ -58,7 +57,7 @@ public class chatsFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment chatsFragment.
      */
-    // TODO: Rename and change types and number of parameters
+// TODO: Rename and change types and number of parameters
     public static chatsFragment newInstance(String param1, String param2) {
         chatsFragment fragment = new chatsFragment();
         Bundle args = new Bundle();
@@ -83,19 +82,13 @@ public class chatsFragment extends Fragment {
         // Inflate the layout for this fragment
         final ProgressBar progressBar;
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         View view = inflater.inflate(R.layout.fragment_chats,container,false);
-
-
         progressBar=view.findViewById(R.id.progressbar);
         assert user != null;
-
-
         final RecyclerView rv;
         final ArrayList<Users> usersArrayList;
         final AdapterChatLista adapter;
         LinearLayoutManager mLayoutManager;
-
         mLayoutManager= new LinearLayoutManager(getContext());
         mLayoutManager.setReverseLayout(true);
         mLayoutManager.setStackFromEnd(true);
@@ -123,13 +116,11 @@ public class chatsFragment extends Fragment {
                     Toast.makeText(getContext(), "No existen usuarios", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
         return view;
     }
 }

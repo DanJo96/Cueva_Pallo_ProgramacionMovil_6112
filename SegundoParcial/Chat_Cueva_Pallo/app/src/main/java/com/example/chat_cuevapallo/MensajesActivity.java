@@ -20,12 +20,9 @@ import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
-import com.example.chat_cuevapallo.adapters.AdapterChatLista;
-import com.example.chat_cuevapallo.adapters.AdapterMensajeLista;
-import com.example.chat_cuevapallo.pojos.Chats;
-import com.example.chat_cuevapallo.pojos.Estado;
-import com.example.chat_cuevapallo.pojos.Users;
-import com.google.android.gms.auth.api.signin.internal.Storage;
+import com.example.chat_cuevapallo.Adapters.AdapterMensajeLista;
+import com.example.chat_cuevapallo.Modelo.Chats;
+import com.example.chat_cuevapallo.Modelo.Estado;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,33 +42,89 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * The type Mensajes activity.
+ */
 public class MensajesActivity extends AppCompatActivity {
+    /**
+     * The Img user.
+     */
     CircleImageView img_user;
+    /**
+     * The Username.
+     */
     TextView username;
-    ImageView ic_conectado,ic_desconectado;
+    /**
+     * The Ic conectado.
+     */
+    ImageView ic_conectado, /**
+     * The Ic desconectado.
+     */
+    ic_desconectado;
+    /**
+     * The M pref.
+     */
     SharedPreferences mPref;
+    /**
+     * The Recycler view mensajes.
+     */
     RecyclerView recyclerViewMensajes;
+    /**
+     * The Adapter mensaje lista.
+     */
     AdapterMensajeLista adapterMensajeLista;
 
+    /**
+     * The User.
+     */
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    /**
+     * The Database.
+     */
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    /**
+     * The Ref estado.
+     */
     DatabaseReference ref_estado = database.getReference("Estado").child(user.getUid());
+    /**
+     * The Ref chat.
+     */
     DatabaseReference ref_chat = database.getReference("Chats");
+    /**
+     * The Firebase storage.
+     */
     FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
+    /**
+     * The Storage reference.
+     */
     StorageReference storageReference;
+    /**
+     * The User id.
+     */
     String userID;
+    /**
+     * The Unico id.
+     */
     String unicoID;
 
 
+    /**
+     * The Et mensaje txt.
+     */
     EditText et_mensaje_txt;
-    ImageButton btn_enviar_msj,btn_enviar_foto;
+    /**
+     * The Btn enviar msj.
+     */
+    ImageButton btn_enviar_msj, /**
+     * The Btn enviar foto.
+     */
+    btn_enviar_foto;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_mensajes);
         Toolbar toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -88,10 +141,8 @@ public class MensajesActivity extends AppCompatActivity {
         final String id_unico = getIntent().getExtras().getString("id_unico");
         unicoID=id_unico;
         userID=id_user;
-
         recyclerViewMensajes=findViewById(R.id.rvMensajes);
         recyclerViewMensajes.setLayoutManager(new LinearLayoutManager(this));
-
         final List<Chats> chats=new ArrayList<>();
         adapterMensajeLista = new AdapterMensajeLista(chats,this);
         recyclerViewMensajes.setAdapter(adapterMensajeLista);
@@ -101,9 +152,7 @@ public class MensajesActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-
                     recyclerViewMensajes.setVisibility(View.VISIBLE);
-                    System.out.println("AAAAAAAAAAAAquiiiii!!!!!!!!!!!!!!!!!!!!!");
                     chats.removeAll(chats);
                     for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                         Chats chat= snapshot.getValue(Chats.class);
@@ -122,9 +171,6 @@ public class MensajesActivity extends AppCompatActivity {
 
             }
         });
-
-
-
         et_mensaje_txt=findViewById(R.id.txt_mensaje);
         btn_enviar_msj=findViewById(R.id.btn_enviar_mensaje);
         btn_enviar_msj.setOnClickListener(new View.OnClickListener() {
@@ -146,11 +192,8 @@ public class MensajesActivity extends AppCompatActivity {
                 i.setType("image/jpeg");
                 i.putExtra(Intent.EXTRA_LOCAL_ONLY,true);
                 startActivityForResult(Intent.createChooser(i,"Selecciona una imagen"),1);
-
-
             }
         });
-
 
         final String id_user_sp=mPref.getString("usuario_sp","");
         username.setText(usuario);
@@ -187,7 +230,6 @@ public class MensajesActivity extends AppCompatActivity {
                 Estado est= new Estado(estado,"","",id_user_sp);
                 ref_estado.setValue(est);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -218,30 +260,31 @@ public class MensajesActivity extends AppCompatActivity {
                 ref_estado.child("fecha").setValue(dateFormat.format(c.getTime()));
                 ref_estado.child("hora").setValue(timeFormat.format(c.getTime()));
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
     }
+
+    /**
+     * Obtener chats list.
+     *
+     * @return the list
+     */
     public List<Chats> obtenerChats(){
         List<Chats> chats=new ArrayList<>();
         chats.add(new Chats());
         return chats;
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         try {
 
             if (requestCode == 1 && resultCode == RESULT_OK) {
                 Uri u = data.getData();
-
                 storageReference = firebaseStorage.getReference("imagenesChat");
-
                 final StorageReference fotoReference = storageReference.child(u.getLastPathSegment());
                 // storageReference.child("image "+u.getLastPathSegment());
                 fotoReference.putFile(u).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -252,8 +295,6 @@ public class MensajesActivity extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
                                 Chats chatmsj = new Chats(user.getUid(),userID,uri.toString(),"si");
                                 ref_chat.child(unicoID).push().setValue(chatmsj);
-                                /*mensajito msj = new mensajito(nombre1.getText().toString(), "Josue ha enviado una foto", uri.toString(), "2", "", "00:00");
-                                databaseReference.push().setValue(msj);*/
                             }
                         });
                     }

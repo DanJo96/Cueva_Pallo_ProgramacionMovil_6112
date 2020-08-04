@@ -44,11 +44,9 @@
 
             </TextView>
             <ImageView
-                android:visibility="gone"
+                android:layout_width="180dp"
+                android:layout_height="200dp"
                 android:id="@+id/img_vista"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
                 />
 
         </LinearLayout>

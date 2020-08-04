@@ -1,4 +1,4 @@
-package com.example.chat_cuevapallo.fragments;
+package com.example.chat_cuevapallo.Fragments;
 
 import android.os.Bundle;
 
@@ -26,6 +26,9 @@ public class solicitudesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    /**
+     * Instantiates a new Solicitudes fragment.
+     */
     public solicitudesFragment() {
         // Required empty public constructor
     }
@@ -38,7 +41,7 @@ public class solicitudesFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment solicitudesFragment.
      */
-    // TODO: Rename and change types and number of parameters
+// TODO: Rename and change types and number of parameters
     public static solicitudesFragment newInstance(String param1, String param2) {
         solicitudesFragment fragment = new solicitudesFragment();
         Bundle args = new Bundle();
@@ -47,7 +50,6 @@ public class solicitudesFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

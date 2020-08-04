@@ -14,11 +14,20 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity
 {
     private FirebaseAuth mfirebaseAuth;
     private FirebaseAuth.AuthStateListener mautListener;
+    /**
+     * The constant SIGN_IN.
+     */
     public static final int SIGN_IN=1;
+    /**
+     * The Providers.
+     */
     List<AuthUI.IdpConfig> providers = Arrays.asList(
         new AuthUI.IdpConfig.GoogleBuilder().build()
     );
@@ -64,10 +73,13 @@ public class MainActivity extends AppCompatActivity
         super.onPause();
         mfirebaseAuth.removeAuthStateListener(mautListener);
     }
-
     private void vamosaHome() {
-        Intent i= new Intent(this,homeActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(i);
+        try {
+            Intent i = new Intent(this, homeActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+        }catch (Exception e){
+            System.out.println("Error");
+        }
     }
 }

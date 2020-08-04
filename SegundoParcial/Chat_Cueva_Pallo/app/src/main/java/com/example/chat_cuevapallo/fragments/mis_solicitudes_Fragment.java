@@ -1,22 +1,14 @@
-package com.example.chat_cuevapallo.fragments;
+package com.example.chat_cuevapallo.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.chat_cuevapallo.MainActivity;
 import com.example.chat_cuevapallo.R;
-import com.example.chat_cuevapallo.homeActivity;
-import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +26,9 @@ public class mis_solicitudes_Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    /**
+     * Instantiates a new Mis solicitudes fragment.
+     */
     public mis_solicitudes_Fragment() {
         // Required empty public constructor
     }
@@ -46,7 +41,7 @@ public class mis_solicitudes_Fragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment mis_solicitudes_Fragment.
      */
-    // TODO: Rename and change types and number of parameters
+// TODO: Rename and change types and number of parameters
     public static mis_solicitudes_Fragment newInstance(String param1, String param2) {
         mis_solicitudes_Fragment fragment = new mis_solicitudes_Fragment();
         Bundle args = new Bundle();

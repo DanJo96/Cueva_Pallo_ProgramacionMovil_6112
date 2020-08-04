@@ -10,14 +10,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.chat_cuevapallo.adapters.PaginasAdapter;
-import com.example.chat_cuevapallo.pojos.Estado;
-import com.example.chat_cuevapallo.pojos.Users;
+import com.example.chat_cuevapallo.Adapters.PaginasAdapter;
+import com.example.chat_cuevapallo.Modelo.Estado;
+import com.example.chat_cuevapallo.Modelo.Users;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,13 +32,30 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * The type Home activity.
+ */
 public class homeActivity extends AppCompatActivity {
+    /**
+     * The User.
+     */
     FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
+    /**
+     * The Database.
+     */
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    /**
+     * The Ref user.
+     */
     DatabaseReference ref_user= database.getReference("Users").child(user.getUid());
+    /**
+     * The Ref solicitud count.
+     */
     DatabaseReference ref_solicitud_count= database.getReference("Contador").child(user.getUid());
+    /**
+     * The Ref estado.
+     */
     DatabaseReference ref_estado= database.getReference("Estado").child(user.getUid());
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
