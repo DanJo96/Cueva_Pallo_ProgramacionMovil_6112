@@ -1,18 +1,16 @@
-package com.example.chat_cuevapallo;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
 /***********************************************
- *  Programa: Calculadora Básica               *
+ *  Programa: Chat                             *
  *	Autores: Cueva - Pallo					   *
  *	Fecha Creación: 26/05/2020				   *
  *	Fecha Modificación:  05/05/2020		       *
  *	Carrera: Sistemas e Informatica			   *
  *	Profesor: Ing Fernando Solis			   *
  **********************************************/
+package com.example.chat_cuevapallo;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

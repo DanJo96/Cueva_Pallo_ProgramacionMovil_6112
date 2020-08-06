@@ -1,4 +1,14 @@
+/***********************************************
+ *  Programa: Chat                             *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  05/05/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************/
 package com.example.chat_cuevapallo;
+
+import com.example.chat_cuevapallo.Modelo.Users;
 
 import org.junit.Test;
 
@@ -14,48 +24,13 @@ public class UnitTest {
      * Prueba 1.
      */
     @Test
-    public void prueba1() {
-        assertEquals(4, 2 + 2);
-    }
-
-    /**
-     * Prueba 2.
-     */
-    @Test
-    public void prueba2() {
-        assertEquals(8, 10 - 2);
-    }
-
-    /**
-     * Prueba 3.
-     */
-    @Test
-    public void prueba3() {
-        assertEquals(0, 2 - 2);
-    }
-
-    /**
-     * Prueba 4.
-     */
-    @Test
-    public void prueba4() {
-        assertEquals(4, 2 + 2);
-    }
-
-    /**
-     * Prueba 5.
-     */
-    @Test
-    public void prueba5() {
-        assertEquals(6, 4 + 2);
-    }
-
-    /**
-     * Prueba 6.
-     */
-    @Test
-    public void prueba6() {
-        assertEquals(3, 1 + 2);
+    public void Fecha()
+    {
+        Users U1 = new Users();
+        String control;
+        String esperado = "06-Aug-2020";
+        control = U1.fechaingreso();
+        assertEquals(esperado,control);
     }
 
 }

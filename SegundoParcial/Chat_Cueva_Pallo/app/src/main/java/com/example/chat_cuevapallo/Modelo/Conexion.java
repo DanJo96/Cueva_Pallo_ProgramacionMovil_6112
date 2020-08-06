@@ -1,5 +1,12 @@
+/***********************************************
+ *  Programa: Chat                             *
+ *	Autores: Cueva - Pallo					   *
+ *	Fecha Creación: 26/05/2020				   *
+ *	Fecha Modificación:  05/05/2020		       *
+ *	Carrera: Sistemas e Informatica			   *
+ *	Profesor: Ing Fernando Solis			   *
+ **********************************************/
 package com.example.chat_cuevapallo.Modelo;
-
 import android.content.SharedPreferences;
 
 import com.google.firebase.auth.FirebaseAuth;

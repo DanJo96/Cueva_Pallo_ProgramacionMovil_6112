@@ -1,5 +1,5 @@
 /***********************************************
- *  Programa: Calculadora Básica               *
+ *  Programa: Chat                             *
  *	Autores: Cueva - Pallo					   *
  *	Fecha Creación: 26/05/2020				   *
  *	Fecha Modificación:  05/05/2020		       *
